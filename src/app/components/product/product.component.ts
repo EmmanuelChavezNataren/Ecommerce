@@ -13,8 +13,8 @@ import { AppState } from 'src/app/store/app.reducers';
 export class ProductComponent implements OnInit {
   @Input() product: Product;
   @Input() skeleton: boolean;
-  @Input() allowReveal: boolean;
-  productReveal: number;
+  @Input() showProductOptions: boolean;
+  selectedProduct: number;
   constructor(
     private router: Router,
     private store: Store<AppState>
@@ -27,11 +27,11 @@ export class ProductComponent implements OnInit {
   }
 
   showActions(id) {
-    this.productReveal = id;
+    this.selectedProduct = id;
   }
 
   hideActions() {
-    this.productReveal = null;
+    this.selectedProduct = null;
   }
 
   setFavorite() {
