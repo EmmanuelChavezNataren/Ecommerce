@@ -14,7 +14,7 @@ export class SliderComponent implements OnInit {
 
   ngOnInit() { }
 
-  getRealCost(price, discount) {
+  getRealPrice(price, discount) {
     return Number(price) - Number(discount);
   }
 }

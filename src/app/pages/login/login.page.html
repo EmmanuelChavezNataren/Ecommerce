@@ -8,8 +8,8 @@
   <ion-row class="ion-text-center">
     <ion-col>
       <ion-avatar>
-        <ion-skeleton-text animated *ngIf="isLoading"></ion-skeleton-text>
-        <img [src]="user?.picture?.large" *ngIf="!isLoading">
+        <ion-skeleton-text animated *ngIf="isLoading; else userLoadCompleted"></ion-skeleton-text>      
+        <ng-template #userLoadCompleted><img [src]="user?.picture?.large"></ng-template>
       </ion-avatar>
       <p>Bienvenido de vuelta {{ user?.name }}.</p>
     </ion-col>

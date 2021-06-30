@@ -1,4 +1,21 @@
-<ion-card *ngIf="!skeleton">
+<ion-card>
+  <div *ngIf="skeleton; then skeletonBlock else productsBlock"></div>
+  <ng-template #skeletonBlock>
+    <ion-item lines="none">
+      <ion-label class="label-seleton">
+        <p class="brand"><ion-skeleton-text animated style="width: 40%"></ion-skeleton-text></p>
+        <h2 class="product-name"><ion-skeleton-text animated style="width: 80%"></ion-skeleton-text></h2>
+      </ion-label>
+    </ion-item>
+    <ion-card-content>
+      <div class="cont-skeleton-image">
+        <ion-skeleton-text animated></ion-skeleton-text>
+      </div>              
+      <p class="product-price"><ion-skeleton-text animated style="width: 50%"></ion-skeleton-text></p>
+      <p class="product-price"><ion-skeleton-text animated style="width: 40%"></ion-skeleton-text></p>
+    </ion-card-content>
+  </ng-template>
+  <ng-template #productsBlock>
     <ion-item lines="none">
       <ion-label>
         <p class="brand">{{product.brand}}</p>
@@ -21,13 +38,13 @@
         <ion-icon [name]="product.score >= 4 ? 'star' : 'star-outline'" class="rating"></ion-icon>
         <ion-icon [name]="product.score >= 5 ? 'star' : 'star-outline'" class="rating"></ion-icon>
       </div>
-      <div class="cont-button-reveal" *ngIf="allowReveal">
+      <div class="cont-selected-button" *ngIf="showProductOptions">
         <ion-button fill="clear" (click)="showActions(product.id)">
           <ion-icon slot="icon-only" name="add" color="light" class="icon-plus"></ion-icon>
         </ion-button>
       </div>
     </ion-card-content>
-    <div class="cont-reveal" [hidden]="productReveal != product.id">
+    <div class="cont-selected" [hidden]="selectedProduct != product.id">
       <div class="cont-one">
         <ion-item lines="none" >
           <ion-label>
@@ -43,20 +60,5 @@
         <p class="ion-text-center add-cart" (click)="addToCart()">Agregar al carrito</p>
       </div>
     </div>
+  </ng-template> 
 </ion-card>
-
-    <ion-card *ngIf="skeleton">
-        <ion-item lines="none">
-          <ion-label class="label-seleton">
-            <p class="brand"><ion-skeleton-text animated style="width: 40%"></ion-skeleton-text></p>
-            <h2 class="product-name"><ion-skeleton-text animated style="width: 80%"></ion-skeleton-text></h2>
-          </ion-label>
-        </ion-item>
-        <ion-card-content>
-          <div class="cont-skeleton-image">
-            <ion-skeleton-text animated></ion-skeleton-text>
-          </div>              
-          <p class="product-price"><ion-skeleton-text animated style="width: 50%"></ion-skeleton-text></p>
-          <p class="product-price"><ion-skeleton-text animated style="width: 40%"></ion-skeleton-text></p>
-        </ion-card-content>
-    </ion-card>

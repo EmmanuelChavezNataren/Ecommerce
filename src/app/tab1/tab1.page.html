@@ -1,14 +1,15 @@
 <ion-header [translucent]="true" class="ion-no-border">
   <ion-toolbar class="bg-color">
     <ion-item lines="none" [routerLink]="['/profile']" detail="false">
-      <ion-avatar slot="start">
-        <ion-skeleton-text animated [hidden]="!isLoading"></ion-skeleton-text>
-        <img [src]="user?.picture?.thumbnail" [hidden]="isLoading">
-      </ion-avatar>
-      <ion-label>
-        <ion-skeleton-text animated style="width: 50%" [hidden]="!isLoading"></ion-skeleton-text>
-        <span [hidden]="isLoading">Bienvenido, {{ user?.name }}</span>
-      </ion-label>
+      <div *ngIf="isLoading; then loadingUser else userLoadCompleted"></div>
+        <ng-template #loadingUser>
+          <ion-avatar slot="start"><ion-skeleton-text animated></ion-skeleton-text></ion-avatar>
+          <ion-label> <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text></ion-label>
+        </ng-template>
+         <ng-template #userLoadCompleted>
+          <ion-avatar slot="start"><img [src]="user?.picture?.thumbnail"></ion-avatar>
+          <ion-label><span [hidden]="isLoading">Bienvenido, {{ user?.name }}</span></ion-label>
+        </ng-template>  
     </ion-item>
     <ion-buttons slot="end">
       <ion-button fill="clear">
@@ -20,47 +21,42 @@
 
 <ion-content class="bg-color" [fullscreen]="true">
   <h1>Ofertas del día</h1>
-
-  <ion-grid class="pad-slider" *ngIf="isLoading">
+  <ion-grid class="pad-slider" >
     <ion-row class="pad-slider">
       <ion-col size="12" class="pad-slider">
-        <ion-slides pager="false" [options]="slideOpts" #slideNav>
-          <ion-slide *ngFor="let skeleton of ' '.repeat(3).split(''), let x = index" >
-            <app-slider [skeleton]="true" ></app-slider>
-           </ion-slide>
-         </ion-slides>
+        <div *ngIf="isLoading; then loadingOffers else offersLoadCompleted"></div>
+        <ng-template #loadingOffers>
+          <ion-slides pager="false" [options]="slideOpts" #slideNav>
+            <ion-slide *ngFor="let skeleton of ' '.repeat(3).split(''), let x = index" >
+              <app-slider [skeleton]="true" ></app-slider>
+            </ion-slide>
+          </ion-slides>
+        </ng-template>
+         <ng-template #offersLoadCompleted>
+          <ion-slides pager="false" [options]="slideOpts" #slideNav>
+            <ion-slide *ngFor="let offer of allOffers" >
+              <app-slider [offer]="offer" [skeleton]="false" ></app-slider>
+             </ion-slide>
+           </ion-slides>
+        </ng-template>        
       </ion-col>
     </ion-row>
   </ion-grid>
-
-  <ion-grid class="pad-slider" *ngIf="!isLoading">
-    <ion-row class="pad-slider">
-      <ion-col size="12" class="pad-slider">
-        <ion-slides pager="false" [options]="slideOpts" #slideNav>
-          <ion-slide *ngFor="let offer of allOffers" >
-            <app-slider [offer]="offer" [skeleton]="false" ></app-slider>
-           </ion-slide>
-         </ion-slides>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
-
   
   <h1>Descubre</h1>
-
-  <ion-grid *ngIf="!isLoading" class="mb-grid">
+  <ion-grid class="mb-grid">
     <ion-row>
-      <ion-col size="6" *ngFor="let product of allProducts">
-        <app-product [product]="product" [allowReveal]="true" [skeleton]="false"></app-product>
-      </ion-col>
-    </ion-row>
-  </ion-grid>
-
-  <ion-grid *ngIf="isLoading">
-    <ion-row>
-      <ion-col size="6" *ngFor="let skeleton of ' '.repeat(8).split(''), let x = index">
-        <app-product [skeleton]="true"></app-product>
-      </ion-col>
+      <div *ngIf="isLoading; then loadingProducts else productsloadCompleted"></div>
+      <ng-template #loadingProducts>
+        <ion-col size="6" *ngFor="let skeleton of ' '.repeat(8).split(''), let x = index">
+          <app-product [skeleton]="true"></app-product>
+        </ion-col>
+      </ng-template>
+      <ng-template #productsloadCompleted>
+        <ion-col size="6" *ngFor="let product of allProducts">
+          <app-product [product]="product" [showProductOptions]="true" [skeleton]="false"></app-product>
+        </ion-col>
+      </ng-template>      
     </ion-row>
   </ion-grid>
   
