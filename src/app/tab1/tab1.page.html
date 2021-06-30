@@ -1,6 +1,6 @@
 <ion-header [translucent]="true" class="ion-no-border">
   <ion-toolbar class="bg-color">
-    <ion-item lines="none" [routerLink]="['/profile']">
+    <ion-item lines="none" [routerLink]="['/profile']" detail="false">
       <ion-avatar slot="start">
         <ion-skeleton-text animated [hidden]="!isLoading"></ion-skeleton-text>
         <img [src]="user?.picture?.thumbnail" [hidden]="isLoading">
@@ -41,6 +41,25 @@
             <app-slider [offer]="offer" [skeleton]="false" ></app-slider>
            </ion-slide>
          </ion-slides>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  
+  <h1>Descubre</h1>
+
+  <ion-grid *ngIf="!isLoading" class="mb-grid">
+    <ion-row>
+      <ion-col size="6" *ngFor="let product of allProducts">
+        <app-product [product]="product" [allowReveal]="true" [skeleton]="false"></app-product>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-grid *ngIf="isLoading">
+    <ion-row>
+      <ion-col size="6" *ngFor="let skeleton of ' '.repeat(8).split(''), let x = index">
+        <app-product [skeleton]="true"></app-product>
       </ion-col>
     </ion-row>
   </ion-grid>
