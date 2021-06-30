@@ -1,0 +1,34 @@
+<ion-header class="bg-color">
+  <ion-toolbar class="bg-color">
+    <ion-buttons slot="start">
+      <ion-back-button text="" icon="chevron-back-outline"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Favoritos</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="bg-color custom-padding" [fullscreen]="true">
+
+  <ion-grid *ngIf="!isLoading">
+    <ion-row>
+      <ion-col size="6" *ngFor="let product of allFavorites">
+        <app-product [product]="product" [allowReveal]="false" [skeleton]="false"></app-product>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-grid *ngIf="isLoading">
+    <ion-row>
+      <ion-col size="6" *ngFor="let product of allFavorites">
+        <app-product [skeleton]="true"></app-product>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-fab vertical="bottom" horizontal="end" slot="fixed">
+    <ion-fab-button>
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+  </ion-fab>
+
+</ion-content>

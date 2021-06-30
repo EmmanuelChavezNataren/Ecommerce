@@ -1,0 +1,48 @@
+<ion-header [translucent]="true" class="ion-no-border">
+  <ion-toolbar class="bg-color">
+    <ion-item lines="none" [routerLink]="['/profile']">
+      <ion-avatar slot="start">
+        <ion-skeleton-text animated [hidden]="!isLoading"></ion-skeleton-text>
+        <img [src]="user?.picture?.thumbnail" [hidden]="isLoading">
+      </ion-avatar>
+      <ion-label>
+        <ion-skeleton-text animated style="width: 50%" [hidden]="!isLoading"></ion-skeleton-text>
+        <span [hidden]="isLoading">Bienvenido, {{ user?.name }}</span>
+      </ion-label>
+    </ion-item>
+    <ion-buttons slot="end">
+      <ion-button fill="clear">
+        <ion-icon slot="icon-only" name="search" color="dark"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="bg-color" [fullscreen]="true">
+  <h1>Ofertas del día</h1>
+
+  <ion-grid class="pad-slider" *ngIf="isLoading">
+    <ion-row class="pad-slider">
+      <ion-col size="12" class="pad-slider">
+        <ion-slides pager="false" [options]="slideOpts" #slideNav>
+          <ion-slide *ngFor="let skeleton of ' '.repeat(3).split(''), let x = index" >
+            <app-slider [skeleton]="true" ></app-slider>
+           </ion-slide>
+         </ion-slides>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <ion-grid class="pad-slider" *ngIf="!isLoading">
+    <ion-row class="pad-slider">
+      <ion-col size="12" class="pad-slider">
+        <ion-slides pager="false" [options]="slideOpts" #slideNav>
+          <ion-slide *ngFor="let offer of allOffers" >
+            <app-slider [offer]="offer" [skeleton]="false" ></app-slider>
+           </ion-slide>
+         </ion-slides>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  
+</ion-content>

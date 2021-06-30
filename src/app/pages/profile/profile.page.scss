@@ -1,0 +1,104 @@
+ion-title {
+    text-align: center ;
+    padding-left: 0px;
+}
+
+.item-profile{
+    margin-top: 15%;
+}
+
+ion-avatar{
+    width: 7.5rem;
+    height: 7.5rem;
+}
+
+.user-avatar{
+    padding: 5px;
+    background: conic-gradient(#F47F1F 33%, #F47F1F 0 66%, #f6f6f6 0 94%, #F47F1F 0 100%);
+
+    img{
+        background: #f6f6f6;
+        padding: 2px;
+    }
+}
+
+ion-grid{
+    padding: 0px;
+}
+
+.user-name{
+    margin: 0px;
+    color: var(--ion-color-secondary);
+    font-family: "Raleway", sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 2rem;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+.user-lastname{
+    color: #bdbcbc;
+    font-weight: 500;
+}
+
+.user-email{
+    margin: 0px;
+    color: var(--ion-color-primary);
+    font-family: "Raleway", sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    font-size: 1.2em;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+
+ion-item{
+    --background: rgba(0,0,0,0);
+}
+
+.item-favorite{
+    width: 85%;
+    --background: rgba(0,0,0,0);
+    margin-top: 5%;
+
+    ion-label h2{
+        color: var(--ion-color-secondary);
+        font-family: "Raleway", sans-serif;
+        font-style: normal;
+        font-weight: 700;
+        font-size: .9rem;
+    }
+
+    .arrow{
+        height: 2.1rem;
+        border-radius: 7px;
+        padding: 0.35rem 0.5rem;
+        background: #DCDCDC;
+
+        ion-icon{
+            font-size: 1.3rem;
+            font-weight: bold;
+        }
+    }
+}
+
+ion-fab-button{
+    --background: #DCDCDC;
+
+    width: 2.1rem;
+    height: 2.1rem;
+    --box-shadow: none;
+
+    ion-icon{
+        font-size: 1.5rem;
+    }
+}
+
+.item-slot{
+    margin-inline-end: 10px;
+}
+
+ion-footer ion-toolbar ion-button{
+    margin: 5% 5% 7% 5%;
+}

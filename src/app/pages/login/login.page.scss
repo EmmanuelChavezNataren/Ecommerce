@@ -1,0 +1,32 @@
+.img-logo{
+    width: 45%;
+}
+
+ion-avatar {
+    margin: 0 auto;
+    height: 90px;
+    width: 90px;
+    margin-top: 15%;
+    margin-bottom: 6%;
+
+    img{
+        width: 90px;
+        height: 90px;
+        max-width: 90px;
+    }
+}
+
+p{
+    color: var(--ion-color-secondary);
+    text-align: center;
+    padding: 0px 10px;
+    font-size: 1.08em;
+    font-family: "Raleway", sans-serif;
+    font-weight: 400;
+    margin: 5px 0px;
+}
+
+ion-button{
+    margin-bottom: 1.5rem;
+    --box-shadow:  0px 8px 15px rgb(0 0 0 / 28%);
+}

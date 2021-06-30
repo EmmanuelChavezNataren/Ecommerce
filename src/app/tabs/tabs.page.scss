@@ -1,0 +1,41 @@
+ion-tabs{
+    background:  #f6f6f6;
+	ion-fab {
+		margin-bottom: env(safe-area-inset-bottom); /* fix notch ios*/
+        padding-bottom: 5px;
+		ion-fab-button {
+			--box-shadow: none;
+            width: 65px;
+            height: 65px;
+
+            ion-icon{
+                font-size: 2.3em;
+            }
+		}
+	}
+	ion-tab-bar {
+        --background: transparent;
+        border-top-left-radius: 25px !important;
+        border-top-right-radius: 25px !important;
+		border: unset;
+		bottom: 0;
+		left:0; 
+        right: 0;
+		width: 100%;
+		ion-tab-button {
+            --background: transparent;
+            color: #BDBCBC !important;
+
+            ion-icon{
+                font-size: 2.8em;
+            }
+        }
+	}
+}
+
+ion-tab-button.tab-selected {
+    ion-icon, ion-label {
+      color: var(--ion-color-primary) !important;
+      --ion-color-base: var(--ion-color-primary) !important;
+    }
+} 
