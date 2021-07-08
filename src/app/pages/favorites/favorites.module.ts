@@ -5,6 +5,12 @@ import { Routes, RouterModule } from '@angular/router';
 import { IonicModule } from '@ionic/angular';
 import { FavoritesPage } from './favorites.page';
 import { ComponentsModule } from 'src/app/components/components.module';
+import { StoreModule } from '@ngrx/store';
+import { EffectsModule } from '@ngrx/effects';
+
+import * as fromProducts from '../../store/reducers/products.reducer';
+import { ProductsEffects } from '../../store/effects/products.effects';
+import { ProductsFacade } from '../../store/facades/products.facade';
 const routes: Routes = [
   {
     path: '',
@@ -18,10 +24,11 @@ const routes: Routes = [
     FormsModule,
     ComponentsModule,
     IonicModule,
-    RouterModule.forChild(routes)
+    RouterModule.forChild(routes),
+    StoreModule.forFeature(fromProducts.featureKey, fromProducts.reducer),
+    EffectsModule.forFeature([ProductsEffects])
   ],
   declarations: [FavoritesPage],
-  providers: [
-  ]
+  providers: [ProductsFacade]
 })
 export class FavoritesPageModule {}

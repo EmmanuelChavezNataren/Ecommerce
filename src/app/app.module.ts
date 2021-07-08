@@ -7,13 +7,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ComponentsModule } from './components/components.module';
 
-import { StorageService } from './services/storage/storage.service';
+import { StorageService } from './services/storage.service';
 import { StoreModule } from '@ngrx/store';
-import { appReducers } from './store/app.reducers';
 import { EffectsModule } from '@ngrx/effects';
-import { EffectArray } from './store/effects';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from 'src/environments/environment';
+import * as fromCart from './store/reducers/cart.reducer';
+import { CartEffects } from './store/effects/cart.effects';
+import { CartFacade } from './store/facades/cart.facade';
 
 @NgModule({
   declarations: [AppComponent],
@@ -23,8 +24,11 @@ import { environment } from 'src/environments/environment';
     BrowserModule,
     ComponentsModule,
     IonicModule.forRoot(),
-    StoreModule.forRoot(appReducers),
-    EffectsModule.forRoot( EffectArray ),
+    StoreModule.forRoot({}),
+    EffectsModule.forRoot([]),
+    StoreModule.forFeature(fromCart.featureKey, fromCart.reducer),
+    EffectsModule.forFeature([CartEffects]),
+
     StoreDevtoolsModule.instrument({
       maxAge: 25,
       logOnly: environment.production
@@ -33,6 +37,7 @@ import { environment } from 'src/environments/environment';
   exports: [],
   providers: [
     StorageService,
+    CartFacade,
     { provide: RouteReuseStrategy, useClass: IonicRouteStrategy }
   ],
   bootstrap: [AppComponent],

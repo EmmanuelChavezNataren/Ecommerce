@@ -1,19 +1,27 @@
 import { createAction, props } from '@ngrx/store';
+import { Error } from 'src/app/models/Error';
 import { Product } from 'src/app/models/Product';
 
-export const loadProducts = createAction('[Products] Load Products');
+export const enum ProductActionTypes {
+  loadproducts = '[Products] Load All Products',
+  loadproductssuccess = '[Products] Load Products Success',
+  loadproductserror = '[Products] Load Products Error',
+  favoriteproduct = '[Products] Favorite Product',
+}
+
+export const loadProducts = createAction(ProductActionTypes.loadproducts);
 
 export const loadProductsSuccess = createAction(
-    '[Products] Load Products Success',
-    props<{ products: Product[]; offers: Product[]; categories: any[] }>()
+  ProductActionTypes.loadproductssuccess,
+  props<{ products: Product[]}>()
 );
 
 export const loadProductsError = createAction(
-    '[Products] Load Products Error',
-    props<{ payload: Error }>()
+  ProductActionTypes.loadproductserror,
+  props<{ payload: Error }>()
 );
 
 export const favoriteProduct = createAction(
-    '[Products] Favorite Product',
+    ProductActionTypes.favoriteproduct,
     props<{ id: number }>()
 );

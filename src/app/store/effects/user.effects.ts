@@ -1,23 +1,22 @@
 import { Injectable } from '@angular/core';
 import { Actions, createEffect, ofType } from '@ngrx/effects';
-import * as userActions from '../actions';
 import { of } from 'rxjs';
 import { map, switchMap, catchError } from 'rxjs/operators';
-import { ApiService } from 'src/app/services/api/api.service';
+import { ApiService } from 'src/app/services/api.service';
+
 import { User } from '../../models/User';
-import { UserApi } from 'src/app/models/UserApi';
+import { Error } from 'src/app/models/Error';
+import * as fromUser from '../actions/user.actions';
 
 @Injectable()
 export class UserEffects {
 
+
     loadUSer$ = createEffect(() => this.actions$.pipe(
-        ofType(userActions.loadUSer),
-        switchMap((action) => this.apiService.getDataProfile().pipe(
-            map((userApi: UserApi) => {
-                const user = new User(userApi);
-                return userActions.loadUSerSuccess({ user });
-            }),
-            catchError((error: Error) => of(userActions.loadUSerError({ payload: error })))
+        ofType(fromUser.loadUSer),
+        switchMap(() => this.apiService.getDataProfile().pipe(
+            map((user: User) => fromUser.loadUSerSuccess({ user })),
+            catchError((error: Error) => of(fromUser.loadUSerError({ payload: error })))
         ))
     ));
 

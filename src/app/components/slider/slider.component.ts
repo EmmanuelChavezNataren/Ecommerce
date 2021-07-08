@@ -17,4 +17,14 @@ export class SliderComponent implements OnInit {
   getRealPrice(price, discount) {
     return Number(price) - Number(discount);
   }
+
+  detail(producto) {
+    const navigationExtras: NavigationExtras = {
+      queryParams: {
+        item: JSON.stringify(producto),
+      }
+    };
+    this.router.navigate(['/detail'], navigationExtras);
+  }
+
 }

@@ -1,34 +1,44 @@
 import { createAction, props } from '@ngrx/store';
 import { Product } from 'src/app/models/Product';
+import { Error } from 'src/app/models/Error';
 
-export const loadCart = createAction(
-    '[Carro] Cart Load');
+export const enum CartTypes {
+    loadcart = '[Cart] Cart Load',
+    loadcartsuccess = '[Cart] Load Cart Success',
+    loadcarterror = '[Cart] Load Cart Error',
+    addcartproduct = '[Cart] Add Product Cart',
+    addcartproductsuccess = '[Cart] Add Product Cart Success',
+    addcartproducterror = '[Cart] Add Product Error',
+    deleteproduct = '[Cart] Product removed',
+}
+
+export const loadCart = createAction(CartTypes.loadcart,);
 
 export const loadCartSuccess = createAction(
-    '[Productos] Cart Load Success',
+    CartTypes.loadcartsuccess,
     props<{ cartProducts: Product[]; shipping: string }>()
 );
 
 export const loadCartError = createAction(
-    '[Carro] Cart Load Error',
+    CartTypes.loadcarterror,
     props<{ payload: Error }>()
 );
 
 export const addCartProduct = createAction(
-    '[Productos] Add Product Cart',
+    CartTypes.addcartproduct,
     props<{ cartProduct: Product }>()
 );
 
 export const addCartProductSuccess = createAction(
-    '[Productos] Add Product Cart Success',
+    CartTypes.addcartproductsuccess,
 );
 
 export const addCartProductError = createAction(
-    '[Carro] Add Product Cart Error',
-    props<{ payload: string }>()
+    CartTypes.addcartproducterror,
+    props<{ payload: Error }>()
 );
 
 export const deleteProduct = createAction(
-    '[Carro] Product removed',
+    CartTypes.deleteproduct,
     props<{ payload: number }>()
 );

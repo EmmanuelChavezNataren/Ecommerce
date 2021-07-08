@@ -1,17 +1,15 @@
 <ion-header [translucent]="true" class="ion-no-border">
   <ion-toolbar class="bg-color">
     <ion-item lines="none" [routerLink]="['/profile']" detail="false">
-      <div *ngIf="isLoading; then loadingUser else userLoadCompleted"></div>
-        <ng-template #loadingUser>
-          <ion-avatar slot="start"><ion-skeleton-text animated></ion-skeleton-text></ion-avatar>
-          <ion-label> <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text></ion-label>
-        </ng-template>
-         <ng-template #userLoadCompleted>
-          <ion-avatar slot="start"><img [src]="user?.picture?.thumbnail"></ion-avatar>
-          <ion-label><span [hidden]="isLoading">Bienvenido, {{ user?.name }}</span></ion-label>
-        </ng-template>  
+      <ion-avatar slot="start">
+        <img [src]="user?.picture?.thumbnail">
+      </ion-avatar>
+      <ion-label>
+        <span>Bienvenido, {{ user?.fullName | userExtract : "firstname" }}</span>
+      </ion-label>
     </ion-item>
     <ion-buttons slot="end">
+      <app-my-cart></app-my-cart>
       <ion-button fill="clear">
         <ion-icon slot="icon-only" name="search" color="dark"></ion-icon>
       </ion-button>
@@ -21,10 +19,11 @@
 
 <ion-content class="bg-color" [fullscreen]="true">
   <h1>Ofertas del día</h1>
+
   <ion-grid class="pad-slider" >
     <ion-row class="pad-slider">
       <ion-col size="12" class="pad-slider">
-        <div *ngIf="isLoading; then loadingOffers else offersLoadCompleted"></div>
+        <div *ngIf="(isLoading$ | async); then loadingOffers else offersLoadCompleted"></div>
         <ng-template #loadingOffers>
           <ion-slides pager="false" [options]="slideOpts" #slideNav>
             <ion-slide *ngFor="let skeleton of ' '.repeat(3).split(''), let x = index" >
@@ -42,11 +41,12 @@
       </ion-col>
     </ion-row>
   </ion-grid>
-  
+
   <h1>Descubre</h1>
+
   <ion-grid class="mb-grid">
     <ion-row>
-      <div *ngIf="isLoading; then loadingProducts else productsloadCompleted"></div>
+      <div *ngIf="(isLoading$ | async); then loadingProducts else productsloadCompleted"></div>
       <ng-template #loadingProducts>
         <ion-col size="6" *ngFor="let skeleton of ' '.repeat(8).split(''), let x = index">
           <app-product [skeleton]="true"></app-product>
@@ -59,5 +59,5 @@
       </ng-template>      
     </ion-row>
   </ion-grid>
-  
+
 </ion-content>

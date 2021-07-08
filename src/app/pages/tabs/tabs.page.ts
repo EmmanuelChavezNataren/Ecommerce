@@ -10,7 +10,6 @@ export class TabsPage {
 
   constructor(private router: Router) { }
 
-  //Abrimos la vista del carro de compras
   cart() {
     this.router.navigateByUrl('/cart');
   }

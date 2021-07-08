@@ -1,0 +1,79 @@
+<ion-header class="bg-color">
+  <ion-toolbar class="bg-color">
+    <ion-buttons slot="start">
+      <ion-back-button text="" icon="chevron-back-outline"></ion-back-button>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <app-my-cart></app-my-cart>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="bg-color">
+  <div class="esp-padding cont-product">
+     <div class="circle"></div>
+    <div class="product-image" [ngStyle]="{'background-image': 'url(' + product.product_image + ')' }"></div>
+    <ion-row>
+      <ion-col size="9">
+        <h1 class="product-name">{{ product.product_name }}</h1>
+      </ion-col>
+      <ion-col size="3">
+        <h2 class="product-brand">{{ product.brand }}</h2>
+      </ion-col>
+    </ion-row>
+
+    <ion-row>
+      <ion-col size="4" class="col-slider-rating">
+        <div class="cont-stars pos-slider-rating">
+          <ion-icon [name]="product.score >= 1 ? 'star' : 'star-outline'" class="product-rating"></ion-icon>
+          <ion-icon [name]="product.score >= 2 ? 'star' : 'star-outline'" class="product-rating"></ion-icon>
+          <ion-icon [name]="product.score >= 3 ? 'star' : 'star-outline'" class="product-rating"></ion-icon>
+          <ion-icon [name]="product.score >= 4 ? 'star' : 'star-outline'" class="product-rating"></ion-icon>
+          <ion-icon [name]="product.score >= 5 ? 'star' : 'star-outline'" class="product-rating"></ion-icon>
+        </div>
+      </ion-col>
+      <ion-col size="4">
+        <p class="product-reviews">{{ product.reviews }} reseñas</p>
+      </ion-col>
+      <ion-col size="4">
+        <p class="product-price">{{ getRealCost(product.product_price, product.discount) | currency:"":true:"1.2" }}
+        </p>
+      </ion-col>
+    </ion-row>
+  </div>
+  <div class="cont-description ion-padding">
+
+    <ion-row>
+      <ion-col size="12">
+        <p class="text-title-description">Colores</p>
+      </ion-col>
+      <ion-col size="12">
+        <div *ngFor="let item of product.colors; ; let i = index">
+          <div [ngClass]="colorSelected == item.name ? 'color-active' : 'color-inactive'" [style.background-color]="item.hex" (click)="setColor(item.name)"></div>
+        </div>
+
+      </ion-col>
+      <ion-col size="12">
+        <p class="text-title-description">Descripción</p>
+        <p class="ion-text-wrap product-description">{{ product.description }}</p>
+      </ion-col>
+    </ion-row>
+  </div>
+  <div class="cont-footer">
+    <ion-row class="cont-row-footer">
+      <ion-col size="3">
+        <ion-fab>
+          <ion-fab-button color="light" (click)="setFavorite()">
+            <ion-icon name="heart" [color]="product.is_favorite ? 'danger' : 'medium'"></ion-icon>
+          </ion-fab-button>
+        </ion-fab>
+      </ion-col>
+      <ion-col size="9">
+        <ion-button color="primary" expand="full" shape="round" class="mb-but" (click)="addToCart(product)">
+          <img src="./assets/icon/add_cart.svg" class="ico-add-cart">
+          Agregar al carrito
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </div>
+</ion-content>

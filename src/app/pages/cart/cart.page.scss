@@ -1,0 +1,135 @@
+ion-grid{
+    padding: 0%;
+}
+
+ion-item{
+
+    ion-label{
+    padding-left: 10px;
+    }
+
+}
+
+.cont-payment{
+    background: transparent;
+    position: fixed;
+    width: 100%;
+    bottom: 0px;
+}
+
+.cont-payment-color{
+    background: #fff;
+    border-top-left-radius: 25px !important;
+    border-top-right-radius: 25px !important;
+    position: fixed;
+    width: 100%;
+    bottom: 0px;
+    box-shadow: 0px 10px 5px #88888896, 0px -1px 5px #8888887a;
+}
+
+ion-button {
+    text-transform: initial !important;
+}
+
+.col-icon-hide{
+    padding: 0px;
+}
+
+.icon-hide{
+    font-size: 1.7em;
+}
+
+.pos-info-payment{
+    position: relative;
+}
+
+.icon-show{
+    font-size: 1.7em;
+    position: absolute;
+    bottom: -2px;
+    padding-left: 6px;
+}
+
+.cont-button-payment{
+    padding-bottom: 31px;
+}
+
+.info-payment{
+    float: right;
+    font-family: "Raleway", sans-serif;
+    color: #4F4E4E;
+    font-weight: 700;
+    font-size: 0.8em;
+}
+
+.info-concept{
+    float: right;
+    font-family: "Raleway", sans-serif;
+    color: #BDBCBC;
+    font-weight: 700;
+    font-size: .8em;
+    margin: 0px;
+}
+
+.info-cost{
+    float: right;
+    font-family: "Poppins", sans-serif;
+    color: #4F4E4E;
+    font-weight: 700;
+    font-size: 0.8em;
+    padding: 0px;
+}
+
+.item-cost{
+    --min-height: auto !important;
+    --inner-padding-end: 0px;
+    --padding-start: 0px;
+    padding-bottom: 5px;
+    padding-top: 10px;
+    border-bottom: 1px solid #dedddda6;
+}
+
+.item-total{
+    --min-height: auto !important;
+    --inner-padding-end: 0px;
+    --padding-start: 0px;
+    padding-bottom: 5px;
+    padding-top: 10px;
+}
+
+.item-info{
+    --background: transparent;
+    --min-height: auto !important;
+    padding-bottom: 0px;
+    padding-top: 0px;
+    --padding-start: 0px;
+
+    ion-label{
+        margin: 0px;
+    }
+}
+
+.info-payment-default{
+    float: right;
+    font-family: "Raleway", sans-serif;
+    color: #BDBCBC;
+    font-weight: 700;
+    font-size: .9em;
+    padding-left: 20px !important;
+}
+
+  .payment-button{
+    --box-shadow:  0px 8px 15px rgb(0 0 0 / 28%);
+  }
+
+  .pad-0 {
+    padding: 0%;
+  }
+
+  .mar-0{
+    margin: 0%;
+  }
+
+  .cont-items{
+    margin: 2% 0% 30% 0%;
+  }

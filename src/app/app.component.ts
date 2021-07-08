@@ -1,11 +1,9 @@
 import { Component, QueryList, ViewChildren } from '@angular/core';
 import { IonRouterOutlet, Platform } from '@ionic/angular';
-import { StorageService } from './services/storage/storage.service';
+import { StorageService } from './services/storage.service';
 import { Plugins } from '@capacitor/core';
 import { Router } from '@angular/router';
-import { AppState } from './store/app.reducers';
-import { Store } from '@ngrx/store';
-import { loadUSer } from './store/actions';
+import { CartFacade } from './store/facades/cart.facade';
 // eslint-disable-next-line @typescript-eslint/naming-convention
 const { SplashScreen } = Plugins;
 
@@ -21,18 +19,18 @@ export class AppComponent {
     private platform: Platform,
     public storage: StorageService,
     private router: Router,
-    private store: Store<AppState>
+    private cartFacade: CartFacade,
   ) {
     this.initializeApp();
   }
 
   initializeApp() {
-    this.store.dispatch(loadUSer());
-
+    this.cartFacade.loadCart();
     this.platform.ready().then(() => {
-      this.storage.validFirstLoad()
+      this.storage.getDataObject('firstLoad')
         .then((res) => {
-          if (res === 1) {
+          console.log(res);
+          if (res) {
             this.router.navigateByUrl('/login');
               SplashScreen.hide({
                 fadeOutDuration: 500

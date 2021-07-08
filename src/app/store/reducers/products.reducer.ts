@@ -1,46 +1,48 @@
 import { Action, createReducer, on } from '@ngrx/store';
 import { Product } from 'src/app/models/Product';
-import * as ActionsProduct from '../actions';
+import { Error } from 'src/app/models/Error';
+import * as fromProducts from '../actions/products.actions';
 
-export interface ProductsState {
+export const featureKey = 'products';
+
+export interface State {
   products: Product[];
-  offers: Product[];
-  categories: any[];
   loaded: boolean;
+  hasError: boolean;
   loading: boolean;
   error: Error;
 }
 
-export const productsInitialState: ProductsState = {
+export const initialState: State = {
   products: [],
-  offers: [],
-  categories: [],
   loaded: false,
+  hasError: false,
   loading: false,
   error: null
 };
 
-const productsReducer = createReducer(productsInitialState,
+const productsReducer = createReducer(initialState,
 
-  on(ActionsProduct.loadProducts, state => ({ ...state, loading: true })),
+  on(fromProducts.loadProducts, state => ({ ...state, loading: true })),
 
-  on(ActionsProduct.loadProductsSuccess, (state, { products, offers, categories }) => ({
+  // eslint-disable-next-line @typescript-eslint/no-shadow
+  on(fromProducts.loadProductsSuccess, (state, { products }) => ({
     ...state,
     loading: false,
     loaded: true,
-    products: [...products],
-    offers: [...offers],
-    categories: [...categories]
+    hasError: false,
+    products,
   })),
 
-  on(ActionsProduct.loadProductsError, (state, { payload }) => ({
+  on(fromProducts.loadProductsError, (state, { payload }) => ({
     ...state,
     loading: false,
     loaded: false,
+    hasError: true,
     error: payload
   })),
 
-  on(ActionsProduct.favoriteProduct, (state, { id }) => Object.assign({}, state, {
+  on(fromProducts.favoriteProduct, (state, { id }) => Object.assign({}, state, {
       products: state.products.map(producto => {
         if (producto.id === id) {
           return {
@@ -55,5 +57,11 @@ const productsReducer = createReducer(productsInitialState,
 
 );
 
-export const productsreducer = (state: ProductsState | undefined, action: Action) =>
+export const reducer = (state: State | undefined, action: Action) =>
 productsReducer(state, action);
+
+export const isLoading = (state: State) => state.loading;
+export const succeeded = (state: State) => state.loaded;
+export const hasError = (state: State) => state.hasError;
+export const errorMessage = (state: State) => state.error;
+export const products = (state: State) => state.products;

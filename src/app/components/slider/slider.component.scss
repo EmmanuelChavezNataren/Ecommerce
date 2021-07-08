@@ -1,172 +1,172 @@
 ion-card{
-    margin: 3px;
-    border-radius: 24px;
-  }
-
-  ion-card-content{
-    position: relative;
-    padding-top: 0px;
-    padding-bottom: 2px;
-  }
-
-  .brand{
-    font-family: "Poppins", sans-serif;
-    color: #BDBCBC;
-    font-weight: 500;
-    font-size: .6em;
-    text-transform: uppercase;
-    margin: 0px;
-  }
-
-  .product-name{
-    font-family: "Poppins", sans-serif;
-    font-style: normal;
-    color: #000000;
-    font-weight: 500;
-    font-size: 0.7em;
-    margin: 0px;
-  }
-
-  .product-price{
-    font-family: "Poppins", sans-serif;
-    font-style: normal;
-    color: var(--ion-color-secondary);
-    font-weight: 700;
-    font-size: .8em;
-    margin-top: 4px;
-    margin-bottom: 0px;
-  }
-
-  .rating{
-    font-size: 0.75em;
-    margin-right: 1px;
-    color: #FFD056;
-  }
-
-  .rating-slider {
-    font-size: 0.9em;
-    margin-right: 1px;
-    color: #FFD056;
+  margin: 3px;
+  border-radius: 24px;
 }
-  
-  ion-button {
-    height: 2.5em;
-  }  
 
-  
-  .slide-image{
-    min-width: 60px;
-    max-width: 60px;
-    height: 60px;
-    display: flex;
-    align-items: center;
-    background-repeat: no-repeat;
-    background-size: contain;
-    background-position: center center;
-    margin: 0 auto;
-    position: relative;
-    z-index: 2;
-    transform: matrix(0.91, 0.43, -0.42, 0.91, 0, 0);
+ion-card-content{
+  position: relative;
+  padding-top: 0px;
+  padding-bottom: 2px;
+}
 
-    img {
-        display: block;
-        margin: auto;
-        width: 60px;
-    }
+.brand{
+  font-family: "Poppins", sans-serif;
+  color: #BDBCBC;
+  font-weight: 500;
+  font-size: .6em;
+  text-transform: uppercase;
+  margin: 0px;
+}
+
+.product-name{
+  font-family: "Poppins", sans-serif;
+  font-style: normal;
+  color: #000000;
+  font-weight: 500;
+  font-size: 0.7em;
+  margin: 0px;
+}
+
+.product-price{
+  font-family: "Poppins", sans-serif;
+  font-style: normal;
+  color: var(--ion-color-secondary);
+  font-weight: 700;
+  font-size: .8em;
+  margin-top: 4px;
+  margin-bottom: 0px;
+}
+
+.rating{
+  font-size: 0.75em;
+  margin-right: 1px;
+  color: #FFD056;
+}
+
+.rating-slider {
+  font-size: 0.9em;
+  margin-right: 1px;
+  color: #FFD056;
+}
+
+ion-button {
+  height: 2.5em;
+}  
+
+
+.slide-image{
+  min-width: 60px;
+  max-width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: center center;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+  transform: matrix(0.91, 0.43, -0.42, 0.91, 0, 0);
+
+  img {
+      display: block;
+      margin: auto;
+      width: 60px;
   }
+}
 
-  .cont-card-slide{
-    padding-inline-start: 10px;
-    padding-inline-end: 10px;
-  }
+.cont-card-slide{
+  padding-inline-start: 10px;
+  padding-inline-end: 10px;
+}
 
 
- .old-price-slider-product{
-    font-style: normal;
-    color: #F8BA88;
-    font-family: "Poppins", sans-serif;
-    font-size: .7em;
-    font-weight: 500;
-    text-align: left;
-    text-decoration: line-through;
- }
+.old-price-slider-product{
+  font-style: normal;
+  color: #F8BA88;
+  font-family: "Poppins", sans-serif;
+  font-size: .7em;
+  font-weight: 500;
+  text-align: left;
+  text-decoration: line-through;
+}
 
- .price-slider-product{
-    font-family: "Poppins", sans-serif;
-    font-style: normal;
-    color: var(--ion-color-secondary);
-    font-weight: 700;
-    font-size: .9em;
-    text-align: left;
+.price-slider-product{
+  font-family: "Poppins", sans-serif;
+  font-style: normal;
+  color: var(--ion-color-secondary);
+  font-weight: 700;
+  font-size: .9em;
+  text-align: left;
 }
 
 .pos-slider-rating{
-  position: absolute;
-  right: 5px;
-  bottom: 8px;
+position: absolute;
+right: 5px;
+bottom: 8px;
 }
 
 .col-slider-rating{
-  position: relative;
+position: relative;
 }
 
 .cont-skeleton-image{
-  width: 100%;
-  height: 85px;
-  margin: 0 auto;
+width: 100%;
+height: 85px;
+margin: 0 auto;
 }
 
 .label-seleton{
-  margin-bottom: 0px;
+margin-bottom: 0px;
 }
 
 
 .ion-card-slider {
-  margin: 3px;
-  border-radius: 10px;
-  width: 100%; 
-  height: 100%;
+margin: 3px;
+border-radius: 10px;
+width: 100%; 
+height: 100%;
 }
 
 
 .cont-triangle{
-  position: absolute;
-  z-index: 1;
-  top: 16%;
-  left: 10%;
-  right: 0;
-  margin-left: auto;
-  margin-right: auto;
+position: absolute;
+z-index: 1;
+top: 16%;
+left: 10%;
+right: 0;
+margin-left: auto;
+margin-right: auto;
 }
 
 .triangle {
-	position: relative;
-	background-color: #fcdcc0;
-  opacity: .3;
-	text-align: left;
+position: relative;
+background-color: #fcdcc0;
+opacity: .3;
+text-align: left;
 }
 .triangle:before,
 .triangle:after {
-	content: '';
-	position: absolute;
-	background-color: inherit;
+content: '';
+position: absolute;
+background-color: inherit;
 }
 .triangle,
 .triangle:before,
 .triangle:after {
-  width: 2.7rem;
-  height: 2.7rem;
-  margin: 0 auto;
-  border-top-right-radius: 46%;
+width: 2.7rem;
+height: 2.7rem;
+margin: 0 auto;
+border-top-right-radius: 46%;
 }
 
 .triangle {
-	transform: rotate(42deg) skewX(-30deg) scale(1,.866);
+transform: rotate(42deg) skewX(-30deg) scale(1,.866);
 }
 .triangle:before {
-	transform: rotate(-135deg) skewX(-45deg) scale(1.414,.707) translate(0,-50%);
+transform: rotate(-135deg) skewX(-45deg) scale(1.414,.707) translate(0,-50%);
 }
 .triangle:after {
-	transform: rotate(135deg) skewY(-45deg) scale(.707,1.414) translate(50%);
+transform: rotate(135deg) skewY(-45deg) scale(.707,1.414) translate(50%);
 }
 

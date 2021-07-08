@@ -1,10 +1,8 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Store } from '@ngrx/store';
-import { Subscription } from 'rxjs';
-import { filter } from 'rxjs/operators';
+import { Observable, Subscription } from 'rxjs';
 import { User } from 'src/app/models/User';
-import { StorageService } from 'src/app/services/storage/storage.service';
-import { AppState } from 'src/app/store/app.reducers';
+import { StorageService } from 'src/app/services/storage.service';
+import { UserFacade } from 'src/app/store/facades/user.facade';
 
 @Component({
   selector: 'app-login',
@@ -14,24 +12,21 @@ import { AppState } from 'src/app/store/app.reducers';
 export class LoginPage implements OnInit, OnDestroy {
   userSubscription: Subscription;
   user: User;
-  isLoading: boolean;
+  isLoading$: Observable<boolean>;
   error: Error;
   constructor(
-    public storage: StorageService,
-    private store: Store<AppState>
+    private userFacade: UserFacade,
+    private storage: StorageService
     ) {
   }
 
   ngOnInit() {
-    this.userSubscription = this.store.select('user')
-      .pipe(
-        filter(userLogin => userLogin.user != null)
-      )
-      .subscribe(({ user, loading, error }) => {
-        this.isLoading = loading;
-        this.error = error;
-        this.user = user;
-      });
+    this.userSubscription = this.userFacade.user$.subscribe(user => {
+      this.user = user;
+      this.storage.setData('user', JSON.stringify(user));
+    });
+    this.isLoading$ = this.userFacade.isLoading$;
+    this.userFacade.loadUser();
   }
 
   ngOnDestroy() {

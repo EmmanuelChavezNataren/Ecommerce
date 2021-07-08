@@ -1,16 +1,16 @@
 <ion-tabs class="tabs-default">  
   <ion-fab vertical="bottom" horizontal="center" translucent="true">
-    <ion-fab-button color="primary">
+    <ion-fab-button (click)="cart()" color="primary">
       <ion-icon name="cart-outline"></ion-icon>
     </ion-fab-button>
   </ion-fab>
   
   <ion-tab-bar slot="bottom" color="light">
-    <ion-tab-button tab="tab1" color="primary">
+    <ion-tab-button tab="home" color="primary">
       <ion-icon name="compass-outline"></ion-icon>
     </ion-tab-button>
 
-    <ion-tab-button class="notifs">
+    <ion-tab-button tab="list" class="notifs">
       <ion-icon name="list-outline"></ion-icon>
     </ion-tab-button>
   </ion-tab-bar>

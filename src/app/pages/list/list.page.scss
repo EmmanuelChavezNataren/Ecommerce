@@ -1,0 +1,60 @@
+.custom-padding{
+    padding: 10px;
+}
+
+.category_row {
+  width: 100%;
+  white-space: nowrap;
+  overflow-x: auto;
+
+  .category {
+    display: inline-block;
+    background: var(--bg-color);
+    margin: 0 0px;
+    padding: 13px 10px 8px 8px;
+    border-radius: 4px;
+
+      span {
+        margin: 0;
+        line-height: 16px;
+        letter-spacing: 0.5px;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        overflow: hidden;
+        background: #DCDCDC;
+        padding: 3px 20px;
+        border-radius: 20px;
+        font-family: "Poppins", sans-serif;
+        font-style: normal;
+        color: var(--ion-color-secondary);
+        font-weight: 500;
+        font-size: .7em;
+      }
+
+      &:first-child {
+          margin-left: 10px;
+      }
+
+      &:last-child {
+          margin-right: 10px;
+      }
+  }
+}
+
+.cat-active{
+  background: #C4C4C4 !important;
+  color: var(--ion-color-light) !important;
+}
+
+ion-grid{
+  padding: 6px;
+  margin-top: 1em;
+  margin-bottom: 10%;
+}
+
+ion-col {
+  padding: 5px 8px;
+}
+
+
+ 

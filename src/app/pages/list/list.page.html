@@ -1,0 +1,38 @@
+<ion-header [translucent]="true" class="ion-no-border">
+  <ion-toolbar>
+    <ion-title>Seleccione la marca</ion-title>
+    <div slot="end">
+      <ion-button fill="clear">
+        <ion-icon slot="icon-only" name="search" color="dark"></ion-icon>
+      </ion-button>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="bg-color custom-padding" [fullscreen]="true">
+  <div class="category_row">
+    <div class="category ion-text-center" (click)="filterProducts('Todos')">
+      <span [ngClass]="allBrandSelected ? 'cat-active' : ''">Todos</span>
+    </div>
+    <div class="category ion-text-center" (click)="filterProducts(brand)" *ngFor="let brand of allBrands">
+      <span [ngClass]="includeBrand(brand) ? 'cat-active' : ''">{{brand}}</span>
+    </div>
+  </div>
+
+  <ion-grid *ngIf="!isLoading">
+    <ion-row>
+      <div *ngIf="(!isLoading$ | async); then loadingProducts else productsloadCompleted"></div>
+      <ng-template #loadingProducts>
+        <ion-col size="6" *ngFor="let skeleton of ' '.repeat(8).split(''), let x = index">
+          <app-product [skeleton]="true"></app-product>
+        </ion-col>
+      </ng-template>
+      <ng-template #productsloadCompleted>
+        <ion-col size="6" *ngFor="let product of allProducts">
+          <app-product [product]="product" [showProductOptions]="false" [skeleton]="false"></app-product>
+        </ion-col>
+      </ng-template>        
+    </ion-row>
+  </ion-grid>
+
+</ion-content>

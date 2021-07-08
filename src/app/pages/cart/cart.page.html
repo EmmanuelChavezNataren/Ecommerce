@@ -1,0 +1,62 @@
+<ion-header [translucent]="true" class="ion-no-border">
+  <ion-toolbar class="bg-color">
+    <ion-title>Carrito de compras</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="bg-color custom-padding" [fullscreen]="true">
+  <ion-grid class="cont-items">
+    <ion-row>
+      <ion-col size="12" class="pad-0 mar-0">
+        <div *ngFor="let product of allProducts; let i = index">
+          <app-item-cart [product]="product" [index]="i"></app-item-cart>
+        </div>
+      </ion-col>
+    </ion-row>
+    </ion-grid>
+
+  <div [ngClass]="isExpanded ? 'cont-payment-color ' : 'cont-payment'">
+    <ion-grid>
+      <ion-row [hidden]="!isExpanded">
+        <ion-col size="12" class="ion-text-center col-icon-hide" (click)="revealDetail()">
+          <ion-icon name="chevron-down-outline" color="medium" class="icon-hide"></ion-icon>
+        </ion-col>
+      </ion-row>
+      <ion-row [hidden]="!isExpanded">
+        <ion-col size="10" offset="1">
+          <ion-item lines="full" color="light" class="item-info">
+            <ion-label class="info-payment">Información del pago</ion-label>
+          </ion-item>
+          <ion-item lines="full" color="light" class="item-cost">
+            <ion-label class="info-concept">Subtotal</ion-label>
+            <div slot="end" class="info-cost">{{ subtotal | currency }}</div>
+          </ion-item>
+          <ion-item lines="full" color="light" class="item-cost">
+            <ion-label class="info-concept">Costo de envío</ion-label>
+            <div slot="end" class="info-cost">{{ shipping | currency }}</div>
+          </ion-item>
+          <ion-item lines="full" color="light" class="item-total">
+            <ion-label class="info-concept">Total</ion-label>
+            <div slot="end" class="info-cost">{{ total | currency }}</div>
+          </ion-item>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <ion-grid>
+      <ion-row class="cont-button-payment">
+        <ion-col size="10" class="ion-text-center" offset="1">
+          <ion-item lines="none" class="item-info" (click)="revealDetail()" [hidden]="isExpanded">
+            <ion-label class="info-payment-default">
+              <p class="pos-info-payment">Información del pago
+                <ion-icon name="chevron-up-outline" color="medium" class="icon-show"></ion-icon>
+              </p>
+            </ion-label>
+          </ion-item>
+          <ion-button color="primary" expand="full" shape="round" class="payment-button">
+            Proceder al pago
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+</ion-content>

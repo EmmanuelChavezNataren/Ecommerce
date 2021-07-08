@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { StorageService } from 'src/app/services/storage/storage.service';
+import { StorageService } from 'src/app/services/storage.service';
 
 @Component({
   selector: 'app-wizard',
@@ -15,7 +15,7 @@ export class WizardPage implements OnInit {
   }
 
   login(){
-    this.storage.setFirstLoad()
+    this.storage.setData('firstLoad', true)
       .then(() => {
         this.router.navigateByUrl('/login');
     });
