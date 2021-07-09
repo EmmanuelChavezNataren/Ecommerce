@@ -10,7 +10,7 @@ import { UserFacade } from 'src/app/store/facades/user.facade';
   styleUrls: ['./login.page.scss'],
 })
 export class LoginPage implements OnInit, OnDestroy {
-  userSubscription: Subscription;
+  userSubscription = new Subscription();
   user: User;
   isLoading$: Observable<boolean>;
   error: Error;
@@ -21,10 +21,11 @@ export class LoginPage implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.userSubscription = this.userFacade.user$.subscribe(user => {
+    this.userSubscription.add(this.userFacade.user$.subscribe(user => {
       this.user = user;
       this.storage.setData('user', JSON.stringify(user));
-    });
+    }));
+
     this.isLoading$ = this.userFacade.isLoading$;
     this.userFacade.loadUser();
   }

@@ -1,12 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { NavController } from '@ionic/angular';
-import { Store } from '@ngrx/store';
 import { Product } from 'src/app/models/Product';
 import { FunctionsService } from 'src/app/services/functions.service';
-import { addCartProduct } from 'src/app/store/actions/cart.actions';
-import { favoriteProduct } from 'src/app/store/actions/products.actions';
-import { AppState } from 'src/app/store/app.reducers';
+import { CartFacade } from 'src/app/store/facades/cart.facade';
+import { ProductsFacade } from 'src/app/store/facades/products.facade';
 
 @Component({
   selector: 'app-detail',
@@ -15,13 +13,13 @@ import { AppState } from 'src/app/store/app.reducers';
 })
 export class DetailPage implements OnInit {
   product: Product;
-  colorList = [];
   colorSelected: number;
   constructor(
     public navCtrl: NavController,
     private activatedRoute: ActivatedRoute,
-    private store: Store<AppState>,
     public functions: FunctionsService,
+    private productsFacade: ProductsFacade,
+    private cartFacade: CartFacade
   ) {
   }
 
@@ -34,11 +32,11 @@ export class DetailPage implements OnInit {
     });
   }
 
-  getRealCost(price, discount) {
-    return Number(price) - Number(discount);
+  getRealPrice(price: number, discount: number) {
+    return +price-+discount;
   }
 
-  setColor(color) {
+  setColor(color: number) {
     this.colorSelected = color;
   }
 
@@ -48,22 +46,22 @@ export class DetailPage implements OnInit {
 
   setFavorite() {
     this.product.is_favorite = !this.product.is_favorite;
-    this.store.dispatch(favoriteProduct({ id: this.product.id }));
+    this.productsFacade.setFavoriteProduct(this.product.id);
   }
 
-  addToCart(item) {
-     item.colors.map( color => {
+  addToCart(product: Product) {
+     product.colors.map( color => {
       if (color.name === this.colorSelected) {
-        item.color =  {
+        product.color =  {
           name: color.name,
           hex: color.hex,
         };
       }
     });
-    const cartProduct = Object.assign({ color: item.color }, item);
+    const cartProduct = Object.assign({ color: product.color }, product);
     delete cartProduct.colors;
-    this.store.dispatch(addCartProduct({ cartProduct }));
-    this.functions.showMessage('Producto agregado correctamente');
+    this.cartFacade.addProductToCart(cartProduct);
+    this.functions.showToastMessage('Producto agregado correctamente');
   }
 
 }

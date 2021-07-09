@@ -5,6 +5,7 @@ import { User } from '../../models/User';
 import { IonSlides } from '@ionic/angular';
 import { ProductsFacade } from '../../store/facades/products.facade';
 import { StorageService } from '../../services/storage.service';
+import { CartFacade } from 'src/app/store/facades/cart.facade';
 
 @Component({
   selector: 'app-home',
@@ -15,31 +16,40 @@ export class HomePage implements OnInit, OnDestroy {
   @ViewChild('slideNav', { static: false }) slideNav: IonSlides;
   slideOpts = {
     initialSlide: 1,
-    slidesPerView: 1.6,
+    slidesPerView: 2,
     loop: true,
     centeredSlides: true,
     spaceBetween: 5
   };
   allOffers: Product[] = [];
   allProducts: Product[] = [];
+  totalProducts: number;
   user: User;
 
   isLoading$: Observable<boolean>;
   error: Error;
-  productsSubscription: Subscription;
+  subscriptions = new Subscription();
   constructor(
     private productsFacade: ProductsFacade,
+    private cartFacade: CartFacade,
     private storage: StorageService
   ) {}
 
   ngOnInit() {
     this.getUserData();
-    this.productsSubscription = this.productsFacade.products$.subscribe(products => {
+
+    this.subscriptions.add(this.productsFacade.products$.subscribe(products => {
       this.allProducts = products;
       this.allOffers = products.filter((offer) => Number(offer.discount) > 0);
-    });
+    }));
+
+    this.subscriptions.add(this.cartFacade.cartProducts$.subscribe(products => {
+      this.totalProducts = products.length;
+    }));
+
     this.isLoading$ = this.productsFacade.isLoading$;
     this.productsFacade.loadProducts();
+    this.cartFacade.loadCart();
   }
 
   async getUserData(){
@@ -47,6 +57,6 @@ export class HomePage implements OnInit, OnDestroy {
   }
 
   ngOnDestroy() {
-    this.productsSubscription.unsubscribe();
+    this.subscriptions.unsubscribe();
   }
 }

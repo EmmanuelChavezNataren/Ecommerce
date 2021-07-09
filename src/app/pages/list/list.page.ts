@@ -9,12 +9,12 @@ import { ProductsFacade } from '../../store/facades/products.facade';
   styleUrls: ['list.page.scss']
 })
 export class ListPage implements OnInit, OnDestroy {
-  productsSubscription: Subscription;
+  productsSubscription = new Subscription();
   error: Error;
   allProducts: Product[] = [];
-  allBrands: any = [];
-  selectedBrands: any = [];
-  tempProducts: any = [];
+  allBrands: string[] = [];
+  selectedBrands: string[] = [];
+  tempProducts: Product[] = [];
   isLoading$: Observable<boolean>;
   allBrandSelected = true;
 
@@ -26,19 +26,18 @@ export class ListPage implements OnInit, OnDestroy {
     this.isLoading$ = this.productsFacade.isLoading$;
     this.allProducts = [];
 
-    this.productsSubscription = this.productsFacade.products$.subscribe(products => {
+    this.productsSubscription.add(this.productsFacade.products$.subscribe(products => {
       this.allProducts = products;
       this.tempProducts = products;
       this.allBrands = [...new Set(products.map((d) => d.brand))];
-    });
-
+    }));
   }
 
   ngOnDestroy() {
     this.productsSubscription.unsubscribe();
   }
 
-  includeBrand(brand) {
+  includeBrand(brand: string) {
     if (this.selectedBrands.includes(brand)) {
       return true;
     }
@@ -47,7 +46,7 @@ export class ListPage implements OnInit, OnDestroy {
     }
   }
 
-  filterProducts(brand) {
+  filterProducts(brand: string) {
     if (brand === 'Todos') {
       if (this.selectedBrands.length === this.allBrands.length) {
         this.selectedBrands = [];

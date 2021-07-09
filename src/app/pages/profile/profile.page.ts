@@ -18,7 +18,6 @@ export class ProfilePage implements OnInit {
 
   async getUserData(){
     this.user = await this.storage.getDataObject('user');
-    console.log(this.user);
   }
 
 }

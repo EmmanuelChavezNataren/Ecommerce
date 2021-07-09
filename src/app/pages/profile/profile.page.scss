@@ -102,3 +102,10 @@ ion-fab-button{
 ion-footer ion-toolbar ion-button{
     margin: 5% 5% 7% 5%;
 }
+
+ion-button{
+    margin-bottom: 1.5rem;
+    --box-shadow:  0px 8px 15px rgb(0 0 0 / 28%);
+    height: 13.2vw;
+    font-size: 4.33vw;
+}

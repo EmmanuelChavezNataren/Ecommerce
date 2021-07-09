@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { filter } from 'rxjs/operators';
 import { Product } from 'src/app/models/Product';
 import * as CartActions from '../actions/cart.actions';
+import { addCartProduct, deleteProduct } from '../actions/cart.actions';
 import * as fromCartReducer from '../reducers/cart.reducer';
 import * as fromCartSelector from '../selectors/cart.selector';
 
@@ -35,4 +36,13 @@ export class CartFacade {
     loadCart() {
         this.store.dispatch(CartActions.loadCart());
     }
+
+    addProductToCart(product: Product) {
+        this.store.dispatch(addCartProduct({ cartProduct: product }));
+    }
+
+    removeProductfromCart(index: number) {
+        this.store.dispatch(deleteProduct({ payload: index }));
+    }
+
 }

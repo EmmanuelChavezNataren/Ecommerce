@@ -46,7 +46,7 @@
     </ion-card-content>
     <div class="cont-selected" [hidden]="selectedProduct != product.id">
       <div class="cont-one">
-        <ion-item lines="none" >
+        <ion-item lines="none" color="medium-contrast">
           <ion-label>
           </ion-label>
           <div>
@@ -54,14 +54,14 @@
           </div>
         </ion-item>
         <p class="ion-text-center add-favorites" (click)="setFavorite()">
-            <span *ngIf="product.is_favorite; else notFavorite">Quitar de favoritos</span>   
-          <ng-template #notFavorite>
+            <span *ngIf="product.is_favorite; else addFavorite">Quitar de favoritos</span>   
+          <ng-template #addFavorite>
             <span>Agregar a favoritos</span> 
           </ng-template>
         </p>
       </div>
-      <div class="cont-two">              
-        <img src="./assets/icon/add_cart.svg" class="ico-add-cart" (click)="addToCart()">
+      <div class="cont-two">  
+        <ion-icon src="./assets/icon/add_cart.svg" class="ico-add-cart" (click)="addToCart()"></ion-icon>
         <p class="ion-text-center add-cart" (click)="addToCart()">Agregar al carrito</p>
       </div>
     </div>

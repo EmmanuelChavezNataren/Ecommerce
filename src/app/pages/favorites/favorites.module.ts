@@ -11,6 +11,7 @@ import { EffectsModule } from '@ngrx/effects';
 import * as fromProducts from '../../store/reducers/products.reducer';
 import { ProductsEffects } from '../../store/effects/products.effects';
 import { ProductsFacade } from '../../store/facades/products.facade';
+import { CartFacade } from 'src/app/store/facades/cart.facade';
 const routes: Routes = [
   {
     path: '',
@@ -29,6 +30,6 @@ const routes: Routes = [
     EffectsModule.forFeature([ProductsEffects])
   ],
   declarations: [FavoritesPage],
-  providers: [ProductsFacade]
+  providers: [ProductsFacade, CartFacade]
 })
 export class FavoritesPageModule {}

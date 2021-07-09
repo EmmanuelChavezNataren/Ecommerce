@@ -36,10 +36,10 @@ ion-card{
     font-size: 0.85em;
 }
 
-.cont-col{
+ion-col:first-child {
     padding: 0px;
     text-align: center;
-}
+  }
 
 .product-price{
     float: right;
@@ -58,7 +58,6 @@ ion-card{
 }
 
 .product-image {
-    background-image: url('./../../../assets/images/loading.gif');
     min-width: 55px;
     max-width: 55px;
     height: 55px;
@@ -66,9 +65,6 @@ ion-card{
     display: flex;
     align-items: center;
     background-repeat: no-repeat;
-    -webkit-background-size: contain;
-    -moz-background-size: contain;
-    -o-background-size: contain;
     background-size: contain;
     background-position: center center;
     border-radius: 5px;
@@ -95,38 +91,24 @@ ion-card{
         }
     }
 
-    .product-name {
+    .product-name,
+    .product-color,
+    .product-price
+     {
         font-size: 1.2em;
     }
 
-    .product-color {
-        font-size: 1.2em;
-    }
-
-    .product-price {
-        font-size: 1.2em;
-    }
-
-    .pad-col{
+    ion-col{
       padding-top: 20px;
     }
 
-    .pad-col ion-button{
+    ion-col ion-button{
         font-size: 1.4em;
     }
 
-    .pos-info-payment{
-        font-size: 1.1em;
-    }
-
-    .info-payment {
-        font-size: 1.1em;
-    }
-
-    .info-concept {
-        font-size: 1.1em;
-    }
-
+    .pos-info-payment,
+    .info-payment,
+    .info-concept,
     .info-cost {
         font-size: 1.1em;
     }

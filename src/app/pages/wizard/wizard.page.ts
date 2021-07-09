@@ -15,7 +15,7 @@ export class WizardPage implements OnInit {
   }
 
   login(){
-    this.storage.setData('firstLoad', true)
+    this.storage.setData('isLogin', 1)
       .then(() => {
         this.router.navigateByUrl('/login');
     });

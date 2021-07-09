@@ -23,7 +23,7 @@ ion-card-content{
   font-style: normal;
   color: #000000;
   font-weight: 500;
-  font-size: 0.7em;
+  font-size: 2.89vw;
   margin: 0px;
 }
 
@@ -44,7 +44,7 @@ ion-card-content{
 }
 
 .rating-slider {
-  font-size: 0.9em;
+  font-size: 3.61vw;
   margin-right: 1px;
   color: #FFD056;
 }
@@ -85,7 +85,7 @@ ion-button {
   font-style: normal;
   color: #F8BA88;
   font-family: "Poppins", sans-serif;
-  font-size: .7em;
+  font-size: 2.5vw;
   font-weight: 500;
   text-align: left;
   text-decoration: line-through;
@@ -96,14 +96,14 @@ ion-button {
   font-style: normal;
   color: var(--ion-color-secondary);
   font-weight: 700;
-  font-size: .9em;
+  font-size: 3.61vw;
   text-align: left;
 }
 
 .pos-slider-rating{
-position: absolute;
-right: 5px;
-bottom: 8px;
+  position: absolute;
+  right: 0px;
+  bottom: 1px;
 }
 
 .col-slider-rating{
@@ -126,6 +126,13 @@ margin: 3px;
 border-radius: 10px;
 width: 100%; 
 height: 100%;
+box-shadow:  0px 8px 15px rgb(0 0 0 / 28%);
+}
+
+ion-card{ 
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: space-around !important;
 }
 
 

@@ -4,6 +4,7 @@ import { Observable } from 'rxjs';
 import { filter } from 'rxjs/operators';
 import { Product } from 'src/app/models/Product';
 import * as fromProductsActions from '../actions/products.actions';
+import { favoriteProduct } from '../actions/products.actions';
 import * as fromProductsReducer from '../reducers/products.reducer';
 import * as fromProductsSelector from '../selectors/products.selector';
 
@@ -31,5 +32,9 @@ export class ProductsFacade {
 
     loadProducts() {
         this.store.dispatch(fromProductsActions.loadProducts());
+    }
+
+    setFavoriteProduct(id: number) {
+        this.store.dispatch(favoriteProduct({ id }));
     }
 }

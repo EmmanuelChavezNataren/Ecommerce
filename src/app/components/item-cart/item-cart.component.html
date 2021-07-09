@@ -2,17 +2,17 @@
   <ion-card-content>
     <ion-grid>
       <ion-row>
-        <ion-col size="3" class="cont-col">
+        <ion-col size="3">
           <div class="product-image" [ngStyle]="{'background-image': 'url(' + product.product_image + ')' }"></div>
         </ion-col>
-        <ion-col size="7" class="pad-col">
+        <ion-col size="7">
           <h2 class="product-name">{{ product.product_name }}</h2>
           <p>
             <span class="product-color" *ngIf="product.color">Color {{ product.color.name }}</span>
             <span class="product-price">{{ getRealCost(product.product_price, product.discount) | currency }}</span>
           </p>
         </ion-col>
-        <ion-col size="2" class="pad-col">
+        <ion-col size="2">
           <ion-button fill="clear" (click)="removeProduct()">
             <ion-icon slot="icon-only" name="remove-circle-outline" color="medium"></ion-icon>
           </ion-button>

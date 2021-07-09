@@ -3,7 +3,6 @@ import { IonRouterOutlet, Platform } from '@ionic/angular';
 import { StorageService } from './services/storage.service';
 import { Plugins } from '@capacitor/core';
 import { Router } from '@angular/router';
-import { CartFacade } from './store/facades/cart.facade';
 // eslint-disable-next-line @typescript-eslint/naming-convention
 const { SplashScreen } = Plugins;
 
@@ -18,25 +17,22 @@ export class AppComponent {
   constructor(
     private platform: Platform,
     public storage: StorageService,
-    private router: Router,
-    private cartFacade: CartFacade,
+    private router: Router
   ) {
     this.initializeApp();
   }
 
   initializeApp() {
-    this.cartFacade.loadCart();
     this.platform.ready().then(() => {
-      this.storage.getDataObject('firstLoad')
-        .then((res) => {
-          console.log(res);
-          if (res) {
+      this.storage.getDataObject('isLogin')
+        .then((isLogin) => {
+          if(!!isLogin){
             this.router.navigateByUrl('/login');
               SplashScreen.hide({
                 fadeOutDuration: 500
               });
           }
-          else {
+          else{
             this.router.navigateByUrl('/wizard');
             SplashScreen.hide({
               fadeOutDuration: 500

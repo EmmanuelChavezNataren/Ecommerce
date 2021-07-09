@@ -1,11 +1,9 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { NavigationExtras, Router } from '@angular/router';
-import { Store } from '@ngrx/store';
 import { Product } from 'src/app/models/Product';
 import { FunctionsService } from 'src/app/services/functions.service';
-import { addCartProduct } from 'src/app/store/actions/cart.actions';
-import { favoriteProduct } from 'src/app/store/actions/products.actions';
-import { AppState } from 'src/app/store/app.reducers';
+import { CartFacade } from 'src/app/store/facades/cart.facade';
+import { ProductsFacade } from 'src/app/store/facades/products.facade';
 
 @Component({
   selector: 'app-product',
@@ -19,17 +17,18 @@ export class ProductComponent implements OnInit {
   selectedProduct: number;
   constructor(
     private router: Router,
-    private store: Store<AppState>,
     public functions: FunctionsService,
+    private productsFacade: ProductsFacade,
+    private cartFacade: CartFacade
   ) { }
 
   ngOnInit() { }
 
-  getRealPrice(price, discount) {
-    return Number(price) - Number(discount);
+  getRealPrice(price: number, discount: number) {
+    return +price-+discount;
   }
 
-  showActions(id) {
+  showActions(id: number) {
     this.selectedProduct = id;
   }
 
@@ -38,8 +37,8 @@ export class ProductComponent implements OnInit {
   }
 
   setFavorite() {
-     this.store.dispatch(favoriteProduct({ id: this.product.id }));
-     this.hideActions();
+    this.productsFacade.setFavoriteProduct(this.product.id);
+    this.hideActions();
   }
 
   addToCart() {
@@ -49,8 +48,9 @@ export class ProductComponent implements OnInit {
     };
     const productCart = Object.assign({ color }, this.product);
     delete productCart.colors;
-    this.store.dispatch(addCartProduct({ cartProduct: productCart }));
-    this.functions.showMessage('Producto agregado correctamente');
+
+    this.cartFacade.addProductToCart(productCart);
+    this.functions.showToastMessage('Producto agregado correctamente');
     this.hideActions();
   }
 

@@ -14,11 +14,11 @@ export class SliderComponent implements OnInit {
 
   ngOnInit() { }
 
-  getRealPrice(price, discount) {
+  getRealPrice(price: number, discount: number) {
     return Number(price) - Number(discount);
   }
 
-  detail(producto) {
+  detail(producto: Product) {
     const navigationExtras: NavigationExtras = {
       queryParams: {
         item: JSON.stringify(producto),

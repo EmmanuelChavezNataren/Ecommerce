@@ -12,6 +12,7 @@ import { EffectsModule } from '@ngrx/effects';
 import { ProductsEffects } from '../../store/effects/products.effects';
 import * as fromProducts from '../../store/reducers/products.reducer';
 import { ProductsFacade } from '../../store/facades/products.facade';
+import { CartFacade } from 'src/app/store/facades/cart.facade';
 
 @NgModule({
   imports: [
@@ -24,6 +25,6 @@ import { ProductsFacade } from '../../store/facades/products.facade';
     EffectsModule.forFeature([ProductsEffects])
   ],
   declarations: [ListPage],
-  providers: [ProductsFacade]
+  providers: [ProductsFacade, CartFacade]
 })
 export class ListPageModule {}

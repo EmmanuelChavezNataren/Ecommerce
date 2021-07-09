@@ -10,7 +10,7 @@ export class FunctionsService {
     public toastCtrl: ToastController
   ) {}
 
-  async showMessage(message: string) {
+  async showToastMessage(message: string) {
     const toast = await this.toastCtrl.create({
         message,
         duration: 3000,

@@ -7,14 +7,14 @@ import { HomePage } from './home.page';
 import { HomePageRoutingModule } from './home-routing.module';
 import { ComponentsModule } from '../../components/components.module';
 
-import * as fromUser from '../../store/reducers/user.reducer';
 import * as fromProducts from '../../store/reducers/products.reducer';
-import { UserEffects } from '../../store/effects/user.effects';
-import { UserFacade } from 'src/app/store/facades/user.facade';
+import * as fromCart from '../../store/reducers/cart.reducer';
 import { StoreModule } from '@ngrx/store';
 import { EffectsModule } from '@ngrx/effects';
 import { ProductsEffects } from '../../store/effects/products.effects';
+import { CartEffects } from 'src/app/store/effects/cart.effects';
 import { ProductsFacade } from '../../store/facades/products.facade';
+import { CartFacade } from '../../store/facades/cart.facade';
 import { PipesModule } from '../../pipes/pipes.module';
 
 @NgModule({
@@ -25,11 +25,11 @@ import { PipesModule } from '../../pipes/pipes.module';
     HomePageRoutingModule,
     ComponentsModule,
     PipesModule,
-    StoreModule.forFeature(fromUser.featureKey, fromUser.reducer),
+    StoreModule.forFeature(fromCart.featureKey, fromCart.reducer),
     StoreModule.forFeature(fromProducts.featureKey, fromProducts.reducer),
-    EffectsModule.forFeature([UserEffects, ProductsEffects])
+    EffectsModule.forFeature([ProductsEffects, CartEffects]),
   ],
   declarations: [HomePage],
-  providers: [UserFacade, ProductsFacade]
+  providers: [ProductsFacade, CartFacade]
 })
 export class HomePageModule {}

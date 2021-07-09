@@ -9,7 +9,7 @@ import { ProductsFacade } from 'src/app/store/facades/products.facade';
   styleUrls: ['./favorites.page.scss'],
 })
 export class FavoritesPage implements OnInit, OnDestroy {
-  productsSubscription: Subscription;
+  productsSubscription = new Subscription();
   allFavorites: Product[] = [];
   isLoading$: Observable<boolean>;
   error: Error;
@@ -19,9 +19,10 @@ export class FavoritesPage implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.productsSubscription = this.productsFacade.products$.subscribe(products => {
+    this.productsSubscription.add(this.productsFacade.products$.subscribe(products => {
       this.allFavorites = products.filter((product) => product.is_favorite );
-    });
+    }));
+
     this.isLoading$ = this.productsFacade.isLoading$;
   }
 

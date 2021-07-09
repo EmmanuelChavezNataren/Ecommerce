@@ -1,5 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
+import { Product } from 'src/app/models/Product';
 import { CartFacade } from '../../store/facades/cart.facade';
 
 @Component({
@@ -8,13 +9,12 @@ import { CartFacade } from '../../store/facades/cart.facade';
   styleUrls: ['cart.page.scss']
 })
 export class CartPage implements OnInit, OnDestroy {
-  subscriptionCart: any;
-  subscriptionShipping: any;
+  cartSubscription = new Subscription();
   total = 0;
   subtotal = 0;
   shipping = 0;
-  allProducts: any = [];
-  isExpanded: boolean;
+  allProducts: Product[] = [];
+  showDetail: boolean;
   isLoading$: Observable<boolean>;
 
   constructor(
@@ -23,27 +23,27 @@ export class CartPage implements OnInit, OnDestroy {
 
   ngOnInit() {
     this.allProducts = [];
-    this.subscriptionCart = this.cartFacade.cartProducts$.subscribe(products => {
+
+    this.cartSubscription.add(this.cartFacade.cartProducts$.subscribe(products => {
       this.allProducts = [];
       this.allProducts = products;
       this.refreshTotal();
-    });
+    }));
 
     this.isLoading$ = this.cartFacade.isLoading$;
 
-    this.subscriptionShipping = this.cartFacade.cartShipping$.subscribe(shipping => {
+    this.cartSubscription.add(this.cartFacade.cartShipping$.subscribe(shipping => {
       this.shipping = Number(shipping);
-    });
+    }));
 
   }
 
   ngOnDestroy(){
-    this.subscriptionCart.unsubscribe();
-    this.subscriptionShipping.unsubscribe();
+    this.cartSubscription.unsubscribe();
   }
 
-  revealDetail() {
-    this.isExpanded = !this.isExpanded;
+  showPaymentDetail() {
+    this.showDetail = !this.showDetail;
   }
 
   refreshTotal() {

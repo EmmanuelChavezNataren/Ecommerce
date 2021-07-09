@@ -15,14 +15,14 @@
     </ion-row>
     </ion-grid>
 
-  <div [ngClass]="isExpanded ? 'cont-payment-color ' : 'cont-payment'">
+  <div [ngClass]="showDetail ? 'cont-payment-color ' : 'cont-payment'">
     <ion-grid>
-      <ion-row [hidden]="!isExpanded">
-        <ion-col size="12" class="ion-text-center col-icon-hide" (click)="revealDetail()">
+      <ion-row [hidden]="!showDetail">
+        <ion-col size="12" class="ion-text-center col-icon-hide" (click)="showPaymentDetail()">
           <ion-icon name="chevron-down-outline" color="medium" class="icon-hide"></ion-icon>
         </ion-col>
       </ion-row>
-      <ion-row [hidden]="!isExpanded">
+      <ion-row [hidden]="!showDetail">
         <ion-col size="10" offset="1">
           <ion-item lines="full" color="light" class="item-info">
             <ion-label class="info-payment">Información del pago</ion-label>
@@ -45,7 +45,7 @@
     <ion-grid>
       <ion-row class="cont-button-payment">
         <ion-col size="10" class="ion-text-center" offset="1">
-          <ion-item lines="none" class="item-info" (click)="revealDetail()" [hidden]="isExpanded">
+          <ion-item lines="none" class="item-info" (click)="showPaymentDetail()" [hidden]="showDetail">
             <ion-label class="info-payment-default">
               <p class="pos-info-payment">Información del pago
                 <ion-icon name="chevron-up-outline" color="medium" class="icon-show"></ion-icon>

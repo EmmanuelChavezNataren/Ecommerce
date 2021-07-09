@@ -31,13 +31,13 @@
          <div class="triangle"></div>
        </div>  
        <div class="slide-image" [ngStyle]="{'background-image': 'url(' + offer.product_image + ')' }"></div>
-       <ion-grid>
+       <ion-grid class="ion-no-padding">
        <ion-row>
          <ion-col size="6">
            <p class="old-price-slider-product" *ngIf="offer.discount != '0'">{{ offer.product_price | currency }}</p>
            <p class="price-slider-product">{{ getRealPrice(offer.product_price, offer.discount) | currency }}</p>
          </ion-col>
-         <ion-col size="6" class="col-slider-rating">
+         <ion-col size="6" class="col-slider-rating ion-no-padding">
            <div class="cont-stars pos-slider-rating">
              <ion-icon [name]="offer.score >= 1 ? 'star' : 'star-outline'" class="rating-slider"></ion-icon>
              <ion-icon [name]="offer.score >= 2 ? 'star' : 'star-outline'" class="rating-slider"></ion-icon>
