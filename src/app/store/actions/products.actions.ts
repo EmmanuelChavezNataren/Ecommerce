@@ -13,7 +13,7 @@ export const loadProducts = createAction(ProductActionTypes.loadproducts);
 
 export const loadProductsSuccess = createAction(
   ProductActionTypes.loadproductssuccess,
-  props<{ products: Product[]}>()
+  props<{ products: Product[] }>()
 );
 
 export const loadProductsError = createAction(
@@ -22,6 +22,6 @@ export const loadProductsError = createAction(
 );
 
 export const favoriteProduct = createAction(
-    ProductActionTypes.favoriteproduct,
-    props<{ id: number }>()
+  ProductActionTypes.favoriteproduct,
+  props<{ id: number }>()
 );

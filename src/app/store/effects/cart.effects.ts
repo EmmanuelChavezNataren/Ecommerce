@@ -14,17 +14,17 @@ export class CartEffects {
     loadCart$ = createEffect(() => this.actions$.pipe(
         ofType(fromCart.loadCart),
         switchMap(() => this.apiService.getDataCart().pipe(
-                map((cart: Cart) => fromCart.loadCartSuccess({ cartProducts: cart.products, shipping: cart.shipping })),
-                catchError((error: Error) => of(fromCart.loadCartError({ payload: error })))
-            ))
+            map((cart: Cart) => fromCart.loadCartSuccess({ cartProducts: cart.products, shipping: cart.shipping })),
+            catchError((error: Error) => of(fromCart.loadCartError({ payload: error })))
+        ))
     ));
 
     addProduct$ = createEffect(() => this.actions$.pipe(
         ofType(fromCart.addCartProduct),
         switchMap(() => this.apiService.getDataCart().pipe(
-                map(() => fromCart.addCartProductSuccess()),
-                catchError((error: Error) => of(fromCart.addCartProductError({ payload: error })))
-            ))
+            map(() => fromCart.addCartProductSuccess()),
+            catchError((error: Error) => of(fromCart.addCartProductError({ payload: error })))
+        ))
     ));
 
     constructor(

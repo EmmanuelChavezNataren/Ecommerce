@@ -31,4 +31,4 @@ const routes: Routes = [
   declarations: [LoginPage],
   providers: [UserFacade]
 })
-export class LoginPageModule {}
+export class LoginPageModule { }

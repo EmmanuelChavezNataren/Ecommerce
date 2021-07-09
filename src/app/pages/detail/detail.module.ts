@@ -37,4 +37,4 @@ const routes: Routes = [
   declarations: [DetailPage],
   providers: [ProductsFacade, CartFacade]
 })
-export class DetailPageModule {}
+export class DetailPageModule { }

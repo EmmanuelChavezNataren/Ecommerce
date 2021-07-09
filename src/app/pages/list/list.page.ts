@@ -20,7 +20,7 @@ export class ListPage implements OnInit, OnDestroy {
 
   constructor(
     private productsFacade: ProductsFacade,
-    ) { }
+  ) { }
 
   ngOnInit() {
     this.isLoading$ = this.productsFacade.isLoading$;

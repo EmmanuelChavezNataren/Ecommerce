@@ -55,11 +55,11 @@ const cartReducer = createReducer(initialState,
 );
 
 export const reducer = (state: State | undefined, action: Action) =>
-cartReducer(state, action);
+    cartReducer(state, action);
 
-  export const isLoading = (state: State) => state.loading;
-  export const succeeded = (state: State) => state.loaded;
-  export const hasError = (state: State) => state.hasError;
-  export const errorMessage = (state: State) => state.error;
-  export const cartproducts = (state: State) => state.cartProducts;
-  export const shipping = (state: State) => state.shipping;
+export const isLoading = (state: State) => state.loading;
+export const succeeded = (state: State) => state.loaded;
+export const hasError = (state: State) => state.hasError;
+export const errorMessage = (state: State) => state.error;
+export const cartproducts = (state: State) => state.cartProducts;
+export const shipping = (state: State) => state.shipping;

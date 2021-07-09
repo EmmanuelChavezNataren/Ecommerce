@@ -32,4 +32,4 @@ const routes: Routes = [
   declarations: [FavoritesPage],
   providers: [ProductsFacade, CartFacade]
 })
-export class FavoritesPageModule {}
+export class FavoritesPageModule { }

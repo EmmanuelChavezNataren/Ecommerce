@@ -22,4 +22,4 @@ const routes: Routes = [
   providers: [
   ]
 })
-export class WizardPageModule {}
+export class WizardPageModule { }

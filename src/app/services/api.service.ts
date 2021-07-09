@@ -11,7 +11,7 @@ import { environment } from 'src/environments/environment';
 export class ApiService {
   constructor(
     private http: HttpClient,
-  ) {}
+  ) { }
 
   getDataProfile(): Observable<any> {
     const options = { headers: new HttpHeaders({ 'content-Type': 'application/json;' }) };

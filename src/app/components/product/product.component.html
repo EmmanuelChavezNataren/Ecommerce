@@ -3,16 +3,24 @@
   <ng-template #skeletonBlock>
     <ion-item lines="none">
       <ion-label class="label-seleton">
-        <p class="brand"><ion-skeleton-text animated style="width: 40%"></ion-skeleton-text></p>
-        <h2 class="product-name"><ion-skeleton-text animated style="width: 80%"></ion-skeleton-text></h2>
+        <p class="brand">
+          <ion-skeleton-text animated style="width: 40%"></ion-skeleton-text>
+        </p>
+        <h2 class="product-name">
+          <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+        </h2>
       </ion-label>
     </ion-item>
     <ion-card-content>
       <div class="cont-skeleton-image">
         <ion-skeleton-text animated></ion-skeleton-text>
-      </div>              
-      <p class="product-price"><ion-skeleton-text animated style="width: 50%"></ion-skeleton-text></p>
-      <p class="product-price"><ion-skeleton-text animated style="width: 40%"></ion-skeleton-text></p>
+      </div>
+      <p class="product-price">
+        <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
+      </p>
+      <p class="product-price">
+        <ion-skeleton-text animated style="width: 40%"></ion-skeleton-text>
+      </p>
     </ion-card-content>
   </ng-template>
   <ng-template #productsBlock>
@@ -21,16 +29,18 @@
         <p class="brand">{{product.brand}}</p>
         <h2 class="product-name" (click)="detail()">{{product.product_name}}</h2>
       </ion-label>
-      <ion-icon name="heart-circle" class="icon-favorite" [ngClass]="product.is_favorite ? 'is-favorite' : 'is-not-favorite'"></ion-icon>
-    </ion-item>        
+      <ion-icon name="heart-circle" class="icon-favorite"
+        [ngClass]="product.is_favorite ? 'is-favorite' : 'is-not-favorite'"></ion-icon>
+    </ion-item>
     <ion-card-content>
       <div class="cont-image" (click)="detail()">
         <div class="cont-triangle">
           <div class="triangle"></div>
-        </div>       
+        </div>
         <div class="product-image" [ngStyle]="{'background-image': 'url(' + product.product_image + ')' }"></div>
       </div>
-      <p class="product-price" (click)="detail()">{{ getRealPrice(product.product_price, product.discount) | currency }}</p>
+      <p class="product-price" (click)="detail()">{{ getRealPrice(product.product_price, product.discount) | currency }}
+      </p>
       <div class="cont-stars">
         <ion-icon [name]="product.score >= 1 ? 'star' : 'star-outline'" class="rating"></ion-icon>
         <ion-icon [name]="product.score >= 2 ? 'star' : 'star-outline'" class="rating"></ion-icon>
@@ -54,16 +64,16 @@
           </div>
         </ion-item>
         <p class="ion-text-center add-favorites" (click)="setFavorite()">
-            <span *ngIf="product.is_favorite; else addFavorite">Quitar de favoritos</span>   
+          <span *ngIf="product.is_favorite; else addFavorite">Quitar de favoritos</span>
           <ng-template #addFavorite>
-            <span>Agregar a favoritos</span> 
+            <span>Agregar a favoritos</span>
           </ng-template>
         </p>
       </div>
-      <div class="cont-two">  
+      <div class="cont-two">
         <ion-icon src="./assets/icon/add_cart.svg" class="ico-add-cart" (click)="addToCart()"></ion-icon>
         <p class="ion-text-center add-cart" (click)="addToCart()">Agregar al carrito</p>
       </div>
     </div>
-  </ng-template> 
+  </ng-template>
 </ion-card>

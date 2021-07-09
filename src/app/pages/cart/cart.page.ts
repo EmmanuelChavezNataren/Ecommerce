@@ -38,7 +38,7 @@ export class CartPage implements OnInit, OnDestroy {
 
   }
 
-  ngOnDestroy(){
+  ngOnDestroy() {
     this.cartSubscription.unsubscribe();
   }
 
@@ -51,8 +51,8 @@ export class CartPage implements OnInit, OnDestroy {
     this.subtotal = 0;
     this.allProducts.map(product => {
       this.subtotal += (Number(product.discount) > 0)
-      ? (Number(product.product_price) - Number(product.discount))
-      : Number(product.product_price);
+        ? (Number(product.product_price) - Number(product.discount))
+        : Number(product.product_price);
     });
     this.total = Number(this.subtotal) + Number(this.shipping);
   }

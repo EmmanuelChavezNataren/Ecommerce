@@ -1,28 +1,28 @@
 <ion-content color="light">
   <ion-grid>
     <ion-row class="ion-text-center">
-        <ion-col size="12">
-         <img src="./assets/images/logo.png" alt="" class="img-logo">
-        </ion-col>
-      </ion-row>
-  <ion-row class="ion-text-center">
-    <ion-col>
-      <ion-avatar>
-        <ion-skeleton-text animated *ngIf="(isLoading$ | async); else userLoadCompleted"></ion-skeleton-text>      
-        <ng-template #userLoadCompleted><img [src]="user?.picture?.large"></ng-template>
-      </ion-avatar>
-      <p>Bienvenido de vuelta {{ user?.fullName | userExtract : "fullname" }}.</p>
-    </ion-col>
-  </ion-row>
-  <ion-row class="ion-text-center">
-    <ion-col class="ion-padding">
-      <ion-button color = "primary" expand="full" shape="round" class="mb-but" [routerLink]="['/tabs']">
-        Entrar
-      </ion-button>
-      <ion-button color = "primary" expand="full" shape="round" fill="outline" class="mb-but" >
-        Entrar como invitado
-      </ion-button>
-    </ion-col>
-  </ion-row>
-</ion-grid>
+      <ion-col size="12">
+        <img src="./assets/images/logo.png" alt="" class="img-logo">
+      </ion-col>
+    </ion-row>
+    <ion-row class="ion-text-center">
+      <ion-col>
+        <ion-avatar>
+          <ion-skeleton-text animated *ngIf="(isLoading$ | async); else userLoadCompleted"></ion-skeleton-text>
+          <ng-template #userLoadCompleted><img [src]="user?.picture?.large"></ng-template>
+        </ion-avatar>
+        <p>Bienvenido de vuelta {{ user?.fullName | userExtract : "fullname" }}.</p>
+      </ion-col>
+    </ion-row>
+    <ion-row class="ion-text-center">
+      <ion-col class="ion-padding">
+        <ion-button color="primary" expand="full" shape="round" class="mb-but" [routerLink]="['/tabs']">
+          Entrar
+        </ion-button>
+        <ion-button color="primary" expand="full" shape="round" fill="outline" class="mb-but">
+          Entrar como invitado
+        </ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
 </ion-content>

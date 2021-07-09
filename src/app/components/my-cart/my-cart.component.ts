@@ -9,6 +9,6 @@ export class MyCartComponent implements OnInit {
   @Input() totalProducts: number;
   constructor() { }
 
-  public ngOnInit(){}
+  public ngOnInit() { }
 
 }

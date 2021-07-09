@@ -3,51 +3,57 @@
   <ng-template #skeletonBlock>
     <ion-item lines="none">
       <ion-label>
-        <h2 class="product-name"><ion-skeleton-text animated style="width: 80%"></ion-skeleton-text></h2>
+        <h2 class="product-name">
+          <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+        </h2>
       </ion-label>
-    </ion-item>                
+    </ion-item>
     <ion-card-content class="cont-card-slide">
       <div class="cont-skeleton-image">
         <ion-skeleton-text animated></ion-skeleton-text>
       </div>
       <ion-row>
         <ion-col size="6">
-          <p class="product-price"><ion-skeleton-text animated style="width: 70%"></ion-skeleton-text></p>
+          <p class="product-price">
+            <ion-skeleton-text animated style="width: 70%"></ion-skeleton-text>
+          </p>
         </ion-col>
         <ion-col size="6" class="col-slider-rating">
-          <p class="product-price"><ion-skeleton-text animated style="width: 70%"></ion-skeleton-text></p>
+          <p class="product-price">
+            <ion-skeleton-text animated style="width: 70%"></ion-skeleton-text>
+          </p>
         </ion-col>
       </ion-row>
-    </ion-card-content>  
+    </ion-card-content>
   </ng-template>
   <ng-template #productsBlock>
-     <ion-item lines="none" (click)="detail(offer)">
-       <ion-label>
-         <h2 class="product-name">{{offer.product_name}}</h2>
-       </ion-label>
-     </ion-item>                
-     <ion-card-content class="cont-card-slide" (click)="detail(offer)">
-       <div class="cont-triangle">
-         <div class="triangle"></div>
-       </div>  
-       <div class="slide-image" [ngStyle]="{'background-image': 'url(' + offer.product_image + ')' }"></div>
-       <ion-grid class="ion-no-padding">
-       <ion-row>
-         <ion-col size="6">
-           <p class="old-price-slider-product" *ngIf="offer.discount != '0'">{{ offer.product_price | currency }}</p>
-           <p class="price-slider-product">{{ getRealPrice(offer.product_price, offer.discount) | currency }}</p>
-         </ion-col>
-         <ion-col size="6" class="col-slider-rating ion-no-padding">
-           <div class="cont-stars pos-slider-rating">
-             <ion-icon [name]="offer.score >= 1 ? 'star' : 'star-outline'" class="rating-slider"></ion-icon>
-             <ion-icon [name]="offer.score >= 2 ? 'star' : 'star-outline'" class="rating-slider"></ion-icon>
-             <ion-icon [name]="offer.score >= 3 ? 'star' : 'star-outline'" class="rating-slider"></ion-icon>
-             <ion-icon [name]="offer.score >= 4 ? 'star' : 'star-outline'" class="rating-slider"></ion-icon>
-             <ion-icon [name]="offer.score >= 5 ? 'star' : 'star-outline'" class="rating-slider"></ion-icon>
-           </div>
-         </ion-col>
-       </ion-row>
-     </ion-grid>
-     </ion-card-content>   
-    </ng-template>   
-   </ion-card>
+    <ion-item lines="none" (click)="detail(offer)">
+      <ion-label>
+        <h2 class="product-name">{{offer.product_name}}</h2>
+      </ion-label>
+    </ion-item>
+    <ion-card-content class="cont-card-slide" (click)="detail(offer)">
+      <div class="cont-triangle">
+        <div class="triangle"></div>
+      </div>
+      <div class="slide-image" [ngStyle]="{'background-image': 'url(' + offer.product_image + ')' }"></div>
+      <ion-grid class="ion-no-padding">
+        <ion-row>
+          <ion-col size="6">
+            <p class="old-price-slider-product" *ngIf="offer.discount != '0'">{{ offer.product_price | currency }}</p>
+            <p class="price-slider-product">{{ getRealPrice(offer.product_price, offer.discount) | currency }}</p>
+          </ion-col>
+          <ion-col size="6" class="col-slider-rating ion-no-padding">
+            <div class="cont-stars pos-slider-rating">
+              <ion-icon [name]="offer.score >= 1 ? 'star' : 'star-outline'" class="rating-slider"></ion-icon>
+              <ion-icon [name]="offer.score >= 2 ? 'star' : 'star-outline'" class="rating-slider"></ion-icon>
+              <ion-icon [name]="offer.score >= 3 ? 'star' : 'star-outline'" class="rating-slider"></ion-icon>
+              <ion-icon [name]="offer.score >= 4 ? 'star' : 'star-outline'" class="rating-slider"></ion-icon>
+              <ion-icon [name]="offer.score >= 5 ? 'star' : 'star-outline'" class="rating-slider"></ion-icon>
+            </div>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+  </ng-template>
+</ion-card>

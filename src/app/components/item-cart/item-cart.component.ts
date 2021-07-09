@@ -12,12 +12,12 @@ export class ItemCartComponent implements OnInit {
   @Input() index: number;
   constructor(
     private cartFacade: CartFacade
-    ) { }
+  ) { }
 
-  ngOnInit() {}
+  ngOnInit() { }
 
   getRealCost(price: number, discount: number) {
-    return +price-+discount;
+    return +price - +discount;
   }
 
   removeProduct() {

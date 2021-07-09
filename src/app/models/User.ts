@@ -1,6 +1,6 @@
 import { PictureSizes } from './PictureSizes';
 
-export interface User{
+export interface User {
     email: string;
     fullName: string;
     avatar: string;

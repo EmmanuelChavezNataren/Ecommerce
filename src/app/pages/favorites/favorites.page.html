@@ -16,12 +16,12 @@
         <ion-col size="6" *ngFor="let product of allFavorites">
           <app-product [skeleton]="true"></app-product>
         </ion-col>
-      </ng-template> 
+      </ng-template>
       <ng-template #loadingProductsComplete>
         <ion-col size="6" *ngFor="let product of allFavorites">
           <app-product [product]="product" [showProductOptions]="false" [skeleton]="false"></app-product>
         </ion-col>
-      </ng-template>     
+      </ng-template>
     </ion-row>
   </ion-grid>
 

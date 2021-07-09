@@ -15,12 +15,12 @@ export class FavoritesPage implements OnInit, OnDestroy {
   error: Error;
   constructor(
     private productsFacade: ProductsFacade
-    ) {
+  ) {
   }
 
   ngOnInit() {
     this.productsSubscription.add(this.productsFacade.products$.subscribe(products => {
-      this.allFavorites = products.filter((product) => product.is_favorite );
+      this.allFavorites = products.filter((product) => product.is_favorite);
     }));
 
     this.isLoading$ = this.productsFacade.isLoading$;

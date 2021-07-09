@@ -1,10 +1,10 @@
-ion-card{
+ion-card {
   margin: 3px;
   border-radius: 24px;
-  box-shadow:  0px 8px 15px rgb(0 0 0 / 28%);
+  box-shadow: 0px 8px 15px rgb(0 0 0 / 28%);
 }
 
-ion-card-content{
+ion-card-content {
   position: relative;
   padding-top: 0px;
   padding-bottom: 2px;
@@ -12,7 +12,7 @@ ion-card-content{
   padding-inline-end: 16px;
 }
 
-.cont-selected-button{
+.cont-selected-button {
   position: absolute;
   bottom: 0px;
   right: 0px;
@@ -22,20 +22,20 @@ ion-card-content{
   height: 11.8vw;
 }
 
-.icon-plus{
+.icon-plus {
   font-size: 1.3em;
 }
 
-.brand{
+.brand {
   font-family: "Poppins", sans-serif;
-  color: #BDBCBC;
+  color: #bdbcbc;
   font-weight: 500;
   font-size: 2.7vw;
   text-transform: uppercase;
   margin: 0px;
 }
 
-.product-name{
+.product-name {
   font-family: "Poppins", sans-serif;
   font-style: normal;
   color: #000000;
@@ -44,7 +44,7 @@ ion-card-content{
   margin: 0px;
 }
 
-.product-price{
+.product-price {
   font-family: "Poppins", sans-serif;
   font-style: normal;
   color: var(--ion-color-secondary);
@@ -58,36 +58,36 @@ ion-card-content{
   padding-right: 2px;
 }
 
-.icon-favorite{
+.icon-favorite {
   font-size: 1.6em;
   margin-top: 11px;
 }
 
-.is-favorite{
-  color: #FF1F2C;;
+.is-favorite {
+  color: #ff1f2c;
 }
 
-.is-not-favorite{
-  color: #BDBCBC;
+.is-not-favorite {
+  color: #bdbcbc;
 }
 
-.rating{
+.rating {
   font-size: 0.75rem;
   margin-right: 1px;
-  color: #FFD056;
+  color: #ffd056;
 }
 
 .rating-slider {
   font-size: 0.9em;
   margin-right: 1px;
-  color: #FFD056;
+  color: #ffd056;
 }
 
 ion-button {
   height: 2.5em;
-}  
+}
 
-.cont-selected{
+.cont-selected {
   position: absolute;
   top: 0px;
   width: 100%;
@@ -95,18 +95,18 @@ ion-button {
   z-index: 2;
 }
 
-.cont-one{
+.cont-one {
   height: 50%;
   background: var(--ion-color-medium-contrast);
 }
 
-.cont-two{
+.cont-two {
   height: 50%;
   background: var(--ion-color-primary);
   text-align: center;
 }
 
-.add-favorites{
+.add-favorites {
   background: var(--ion-color-medium-contrast);
   color: var(--ion-color-primary);
   font-family: "Poppins", sans-serif;
@@ -116,7 +116,7 @@ ion-button {
   margin-top: 2px;
 }
 
-.add-cart{
+.add-cart {
   color: var(--ion-color-light);
   font-family: "Poppins", sans-serif;
   font-style: normal;
@@ -125,12 +125,12 @@ ion-button {
   margin-top: 0px;
 }
 
-.ico-add-cart{
+.ico-add-cart {
   font-size: 6vw;
   padding-top: 0.5em;
 }
 
-.icon-hide{
+.icon-hide {
   font-size: 1.5em;
   margin-top: 11px;
   background: #f0f0f0;
@@ -138,104 +138,99 @@ ion-button {
 }
 
 .product-image {
-width: 65px;
-height: 65px;
-margin-right: 12px;
-display: flex;
-align-items: center;
-background-repeat: no-repeat;
--webkit-background-size: contain;
--moz-background-size: contain;
--o-background-size: contain;
-background-size: contain;
-background-position: center center;
-border-radius: 5px;
-position: relative;
-z-index: 2;
-margin: 0 auto;
-transform: matrix(0.91, 0.43, -0.42, 0.91, 0, 0);
+  width: 65px;
+  height: 65px;
+  margin-right: 12px;
+  display: flex;
+  align-items: center;
+  background-repeat: no-repeat;
+  -webkit-background-size: contain;
+  -moz-background-size: contain;
+  -o-background-size: contain;
+  background-size: contain;
+  background-position: center center;
+  border-radius: 5px;
+  position: relative;
+  z-index: 2;
+  margin: 0 auto;
+  transform: matrix(0.91, 0.43, -0.42, 0.91, 0, 0);
 
-img {
+  img {
     display: block;
     margin: auto;
     width: 80px;
-}
-}
-
-@keyframes revealImage
-{
-  100%
-  {
-      opacity: 1;
   }
 }
 
-.cont-skeleton-image{
-width: 100%;
-height: 85px;
-margin: 0 auto;
+@keyframes revealImage {
+  100% {
+    opacity: 1;
+  }
 }
 
-.label-seleton{
-margin-bottom: 0px;
+.cont-skeleton-image {
+  width: 100%;
+  height: 85px;
+  margin: 0 auto;
+}
+
+.label-seleton {
+  margin-bottom: 0px;
 }
 
 ion-grid {
-margin-top: 1em;
-margin-bottom: 1.5em;
+  margin-top: 1em;
+  margin-bottom: 1.5em;
 }
 
-.cont-image{
+.cont-image {
   padding: 2%;
 }
 
-.cont-triangle{
-position: absolute;
-z-index: 1;
-top: 16%;
-left: 10%;
-right: 0;
-margin-left: auto;
-margin-right: auto;
+.cont-triangle {
+  position: absolute;
+  z-index: 1;
+  top: 16%;
+  left: 10%;
+  right: 0;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .triangle {
-position: relative;
-background-color: #fcdcc0;
-opacity: .3;
-text-align: left;
+  position: relative;
+  background-color: #fcdcc0;
+  opacity: 0.3;
+  text-align: left;
 }
 .triangle:before,
 .triangle:after {
-content: '';
-position: absolute;
-background-color: inherit;
+  content: "";
+  position: absolute;
+  background-color: inherit;
 }
 .triangle,
 .triangle:before,
 .triangle:after {
-width: 2.7rem;
-height: 2.7rem;
-margin: 0 auto;
-border-top-right-radius: 46%;
+  width: 2.7rem;
+  height: 2.7rem;
+  margin: 0 auto;
+  border-top-right-radius: 46%;
 }
 
 .triangle {
-transform: rotate(42deg) skewX(-30deg) scale(1,.866);
+  transform: rotate(42deg) skewX(-30deg) scale(1, 0.866);
 }
 .triangle:before {
-transform: rotate(-135deg) skewX(-45deg) scale(1.414,.707) translate(0,-50%);
+  transform: rotate(-135deg) skewX(-45deg) scale(1.414, 0.707)
+    translate(0, -50%);
 }
 .triangle:after {
-transform: rotate(135deg) skewY(-45deg) scale(.707,1.414) translate(50%);
+  transform: rotate(135deg) skewY(-45deg) scale(0.707, 1.414) translate(50%);
 }
 
-
-
-
-
-@media (min-width: 800px){
-  ion-grid{
+@media (min-width: 800px) {
+  ion-grid {
     padding: 1.5em;
   }
 
@@ -245,11 +240,11 @@ transform: rotate(135deg) skewY(-45deg) scale(.707,1.414) translate(50%);
     height: 150px;
 
     img {
-        width: 150px;
+      width: 150px;
     }
   }
 
-  .cont-skeleton-image{
+  .cont-skeleton-image {
     height: 150px;
   }
 
@@ -261,7 +256,7 @@ transform: rotate(135deg) skewY(-45deg) scale(.707,1.414) translate(50%);
     font-size: 1em;
   }
 
-  .product-price{
+  .product-price {
     font-size: 1.2em;
   }
 
@@ -281,7 +276,7 @@ transform: rotate(135deg) skewY(-45deg) scale(.707,1.414) translate(50%);
     font-size: 1.2em;
   }
 
-  .rating-slider{
+  .rating-slider {
     font-size: 1.2em;
     margin-right: 2px;
   }
@@ -297,6 +292,4 @@ transform: rotate(135deg) skewY(-45deg) scale(.707,1.414) translate(50%);
   .icon-favorite {
     font-size: 2em;
   }
-
-
 }

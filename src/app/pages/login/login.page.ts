@@ -17,7 +17,7 @@ export class LoginPage implements OnInit, OnDestroy {
   constructor(
     private userFacade: UserFacade,
     private storage: StorageService
-    ) {
+  ) {
   }
 
   ngOnInit() {

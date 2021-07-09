@@ -28,4 +28,4 @@ const PAGES_COMPONENTS = [
   ],
   entryComponents: [],
 })
-export class ComponentsModule {}
+export class ComponentsModule { }

@@ -44,7 +44,7 @@ const userReducer = createReducer(initialState,
 );
 
 export const reducer = (state: State | undefined, action: Action) =>
-userReducer(state, action);
+    userReducer(state, action);
 
 export const isLoading = (state: State) => state.loading;
 export const succeeded = (state: State) => state.loaded;

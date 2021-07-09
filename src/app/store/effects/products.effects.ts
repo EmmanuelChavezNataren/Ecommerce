@@ -14,9 +14,9 @@ export class ProductsEffects {
     loadProducts$ = createEffect(() => this.actions$.pipe(
         ofType(fromProduct.loadProducts),
         switchMap(() => this.apiService.getDataProducts().pipe(
-                map((products: Product[]) => fromProduct.loadProductsSuccess({ products })),
-                catchError((error: Error) => of(fromProduct.loadProductsError({ payload: error })))
-            ))
+            map((products: Product[]) => fromProduct.loadProductsSuccess({ products })),
+            catchError((error: Error) => of(fromProduct.loadProductsError({ payload: error })))
+        ))
     ));
 
     constructor(

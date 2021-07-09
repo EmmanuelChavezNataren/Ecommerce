@@ -26,4 +26,4 @@ import { CartFacade } from '../../store/facades/cart.facade';
   declarations: [CartPage],
   providers: [CartFacade]
 })
-export class CartPageModule {}
+export class CartPageModule { }

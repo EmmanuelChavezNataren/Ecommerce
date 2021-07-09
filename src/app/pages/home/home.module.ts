@@ -32,4 +32,4 @@ import { PipesModule } from '../../pipes/pipes.module';
   declarations: [HomePage],
   providers: [ProductsFacade, CartFacade]
 })
-export class HomePageModule {}
+export class HomePageModule { }

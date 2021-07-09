@@ -27,4 +27,4 @@ import { CartFacade } from 'src/app/store/facades/cart.facade';
   declarations: [ListPage],
   providers: [ProductsFacade, CartFacade]
 })
-export class ListPageModule {}
+export class ListPageModule { }

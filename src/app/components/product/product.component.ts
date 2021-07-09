@@ -25,7 +25,7 @@ export class ProductComponent implements OnInit {
   ngOnInit() { }
 
   getRealPrice(price: number, discount: number) {
-    return +price-+discount;
+    return +price - +discount;
   }
 
   showActions(id: number) {

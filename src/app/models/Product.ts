@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/naming-convention */
-export interface Product{
+export interface Product {
     brand: string;
     colors: any[];
     color?: any;
@@ -11,6 +11,6 @@ export interface Product{
     product_name: string;
     product_price: string;
     reviews: string;
-    score:  number;
+    score: number;
     sku: string;
 }

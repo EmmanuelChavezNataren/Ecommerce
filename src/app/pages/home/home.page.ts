@@ -33,7 +33,7 @@ export class HomePage implements OnInit, OnDestroy {
     private productsFacade: ProductsFacade,
     private cartFacade: CartFacade,
     private storage: StorageService
-  ) {}
+  ) { }
 
   ngOnInit() {
     this.getUserData();
@@ -52,7 +52,7 @@ export class HomePage implements OnInit, OnDestroy {
     this.cartFacade.loadCart();
   }
 
-  async getUserData(){
+  async getUserData() {
     this.user = await this.storage.getDataObject('user');
   }
 

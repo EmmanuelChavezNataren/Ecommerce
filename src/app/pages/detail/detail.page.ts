@@ -33,7 +33,7 @@ export class DetailPage implements OnInit {
   }
 
   getRealPrice(price: number, discount: number) {
-    return +price-+discount;
+    return +price - +discount;
   }
 
   setColor(color: number) {
@@ -50,9 +50,9 @@ export class DetailPage implements OnInit {
   }
 
   addToCart(product: Product) {
-     product.colors.map( color => {
+    product.colors.map(color => {
       if (color.name === this.colorSelected) {
-        product.color =  {
+        product.color = {
           name: color.name,
           hex: color.hex,
         };

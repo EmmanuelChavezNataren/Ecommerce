@@ -43,22 +43,22 @@ const productsReducer = createReducer(initialState,
   })),
 
   on(fromProducts.favoriteProduct, (state, { id }) => Object.assign({}, state, {
-      products: state.products.map(producto => {
-        if (producto.id === id) {
-          return {
-            ...producto,
-            // eslint-disable-next-line @typescript-eslint/naming-convention
-            is_favorite: !producto.is_favorite
-          };
-        }
-        return producto;
-      })
-    })),
+    products: state.products.map(producto => {
+      if (producto.id === id) {
+        return {
+          ...producto,
+          // eslint-disable-next-line @typescript-eslint/naming-convention
+          is_favorite: !producto.is_favorite
+        };
+      }
+      return producto;
+    })
+  })),
 
 );
 
 export const reducer = (state: State | undefined, action: Action) =>
-productsReducer(state, action);
+  productsReducer(state, action);
 
 export const isLoading = (state: State) => state.loading;
 export const succeeded = (state: State) => state.loaded;

@@ -11,7 +11,7 @@
 
 <ion-content class="bg-color">
   <div class="cont-product">
-     <div class="circle"></div>
+    <div class="circle"></div>
     <div class="product-image" [ngStyle]="{'background-image': 'url(' + product.product_image + ')' }"></div>
     <ion-row>
       <ion-col size="9">
@@ -49,7 +49,8 @@
       </ion-col>
       <ion-col size="12">
         <div *ngFor="let item of product.colors; ; let i = index">
-          <div [ngClass]="colorSelected == item.name ? 'color-active' : 'color-inactive'" [style.background-color]="item.hex" (click)="setColor(item.name)"></div>
+          <div [ngClass]="colorSelected == item.name ? 'color-active' : 'color-inactive'"
+            [style.background-color]="item.hex" (click)="setColor(item.name)"></div>
         </div>
 
       </ion-col>

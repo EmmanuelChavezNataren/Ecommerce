@@ -2,12 +2,12 @@ ion-button {
   text-transform: initial !important;
 }
 
-.ico-add-cart{
+.ico-add-cart {
   width: 1.3em;
   margin-right: 5px;
 }
 
-.img-back{
+.img-back {
   position: fixed;
   bottom: 0px;
   z-index: 0;
@@ -28,27 +28,27 @@ ion-button {
   background-size: contain;
   background-position: center center;
   border-radius: 5px;
-  animation: revealImage 2.5s  forwards;
+  animation: revealImage 2.5s forwards;
   transition: all 2.5s ease;
-  opacity: .3;
+  opacity: 0.3;
   margin: 0 auto;
   z-index: 2;
   position: relative;
   transform: rotate(25deg);
 
   img {
-      display: block;
-      margin: auto;
-      width: 250px;
+    display: block;
+    margin: auto;
+    width: 250px;
   }
 }
 
-.cont-product{
+.cont-product {
   height: auto;
   padding: 5px 10px 3px 10px;
 }
 
-.cont-description{
+.cont-description {
   width: 100%;
   background: #fff;
   height: auto;
@@ -58,7 +58,7 @@ ion-button {
   margin-bottom: 5em;
 }
 
-.product-name{
+.product-name {
   color: black;
   font-family: "Poppins", sans-serif;
   font-style: normal;
@@ -69,8 +69,8 @@ ion-button {
   margin-bottom: 0px;
 }
 
-.product-brand{
-  color: #BDBCBC;
+.product-brand {
+  color: #bdbcbc;
   font-family: "Poppins", sans-serif;
   font-style: normal;
   font-weight: 500;
@@ -80,8 +80,8 @@ ion-button {
   text-align: center;
 }
 
-.product-reviews{
-  color: #BDBCBC;
+.product-reviews {
+  color: #bdbcbc;
   font-family: "Poppins", sans-serif;
   font-style: normal;
   font-weight: 500;
@@ -92,7 +92,7 @@ ion-button {
   padding-top: 7px;
 }
 
-.product-price{
+.product-price {
   color: var(--ion-color-primary);
   font-family: "Poppins", sans-serif;
   font-style: normal;
@@ -103,186 +103,188 @@ ion-button {
   text-align: right;
 }
 
-.cont-stars{
-    padding-top: 5px;
+.cont-stars {
+  padding-top: 5px;
 }
 
-.product-rating{
-    font-size: 1.2em;
-    margin-right: 1px;
-    color: #FFD056;
-  }
+.product-rating {
+  font-size: 1.2em;
+  margin-right: 1px;
+  color: #ffd056;
+}
 
-  .text-title-description{
-    margin: 0px;
-    color: var(--ion-color-secondary);
-    font-family: "Poppins", sans-serif;
-    font-style: normal;
-    font-weight: 500;
-    font-size: .9em;
-    margin-top: 0px;
-    margin-bottom: 0px;
-  }
+.text-title-description {
+  margin: 0px;
+  color: var(--ion-color-secondary);
+  font-family: "Poppins", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 0.9em;
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
 
-  .cont-color{
-    width: 16px;
-    height: 16px;
-    background: #fff;
-    border-radius: 50%;
-    position: absolute;
-  }
+.cont-color {
+  width: 16px;
+  height: 16px;
+  background: #fff;
+  border-radius: 50%;
+  position: absolute;
+}
 
-  .cont-margin-color{
-    background: #fff;
-    border: 1px solid gray;
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    position: relative;
-    padding: 1.2px 1.2px 1px 1.2px;
-    float: left;
-    margin-right: 15px;
-  }
+.cont-margin-color {
+  background: #fff;
+  border: 1px solid gray;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  position: relative;
+  padding: 1.2px 1.2px 1px 1.2px;
+  float: left;
+  margin-right: 15px;
+}
 
-  .cont-margin-no-color{
-    background: #fff;
-    border: 1px solid #999;
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    position: relative;
-    padding: 1.2px 1.2px 1px 1.2px;
-    float: left;
-    margin-right: 15px;
-  }
+.cont-margin-no-color {
+  background: #fff;
+  border: 1px solid #999;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  position: relative;
+  padding: 1.2px 1.2px 1px 1.2px;
+  float: left;
+  margin-right: 15px;
+}
 
-  .cont-margin-no-color:before {
-    background: none;
-    border: 4px solid #fff;
-    content: "";
-    display: block;
-    position: absolute;
-    top: 4px;
-    left: 4px;
-    right: 4px;
-    bottom: 4px;
-    pointer-events: none;
-  }
+.cont-margin-no-color:before {
+  background: none;
+  border: 4px solid #fff;
+  content: "";
+  display: block;
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  right: 4px;
+  bottom: 4px;
+  pointer-events: none;
+}
 
-  .product-description{
-    color: #A6A6A6;
-    font-family: "Poppins", sans-serif;
-    font-style: normal;
-    font-size: 0.9em;
-    margin-top: 9px;
-  }
+.product-description {
+  color: #a6a6a6;
+  font-family: "Poppins", sans-serif;
+  font-style: normal;
+  font-size: 0.9em;
+  margin-top: 9px;
+}
 
-  ion-footer{
-    min-height: 90px;
-  }
+ion-footer {
+  min-height: 90px;
+}
 
-  .cont-footer{
-    position: fixed;
-    width: 100%;
-    bottom: 0px;
-    background: linear-gradient(#ffffff14 0%, #ffffff 20%);
-    height: 100px;
-  }
+.cont-footer {
+  position: fixed;
+  width: 100%;
+  bottom: 0px;
+  background: linear-gradient(#ffffff14 0%, #ffffff 20%);
+  height: 100px;
+}
 
-  .cont-row-footer{
-    position: absolute;
-    width: 100%;
-    bottom: 0px;
-    bottom: 8px;
-    padding: 10px 10px 0px 10px;
-  }
+.cont-row-footer {
+  position: absolute;
+  width: 100%;
+  bottom: 0px;
+  bottom: 8px;
+  padding: 10px 10px 0px 10px;
+}
 
-  .color-inactive {
-    position: relative;
-    z-index: 10;
-    padding: 3px;
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    float: left;
-    margin-right: 15px;
-    border: 2.5px solid #999 !important;
+.color-inactive {
+  position: relative;
+  z-index: 10;
+  padding: 3px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  float: left;
+  margin-right: 15px;
+  border: 2.5px solid #999 !important;
 }
 
 .color-active {
-    position: relative;
-    z-index: 10;
-    padding: 3px;
-    width: 20px;
-    height: 20px;
-    border-radius: 50%;
-    border: 2.5px solid #999 !important;
-    float: left;
-    margin-right: 15px;
-    box-shadow: 0px 2px 3px 1px rgb(0 0 0 / 25%);
+  position: relative;
+  z-index: 10;
+  padding: 3px;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 2.5px solid #999 !important;
+  float: left;
+  margin-right: 15px;
+  box-shadow: 0px 2px 3px 1px rgb(0 0 0 / 25%);
 }
 
-  .color-active:before {
-    content: "";
-    display: block;
-    position: absolute;
-    z-index: 1;
-    top: -.5px;
-    left: -1px;
-    right: -1px;
-    bottom: -1px;
-    border-radius: 50%;
-    border: 2.5px solid #fff;
+.color-active:before {
+  content: "";
+  display: block;
+  position: absolute;
+  z-index: 1;
+  top: -0.5px;
+  left: -1px;
+  right: -1px;
+  bottom: -1px;
+  border-radius: 50%;
+  border: 2.5px solid #fff;
+}
+
+.circle {
+  width: 17rem;
+  height: 17rem;
+  margin: 0 auto;
+  top: 0%;
+  left: 0;
+  right: 0;
+  background: linear-gradient(
+    172.08deg,
+    rgba(244, 127, 31, 0.29) 27.29%,
+    #f6f6f6 74.62%
+  );
+  border-radius: 50%;
+  position: absolute;
+  z-index: 1;
+}
+
+@media (min-width: 800px) {
+  .product-image {
+    min-width: 400px;
+    max-width: 400px;
+    height: 400px;
+
+    img {
+      width: 400px;
+    }
   }
 
-  .circle {
-    width: 17rem;
-    height: 17rem;
-    margin: 0 auto;
-    top: 0%;
-    left: 0;
-    right: 0;
-    background: linear-gradient(172.08deg, rgba(244, 127, 31, 0.29) 27.29%, #f6f6f6 74.62%);
-    border-radius: 50%;
-    position: absolute;
-    z-index: 1;
+  .product-name {
+    font-size: 2.4em;
   }
-  
 
+  .product-brand {
+    font-size: 1.6em;
+  }
 
-  @media (min-width: 800px){
-    .product-image {
-      min-width: 400px;
-      max-width: 400px;
-      height: 400px;
-    
-      img {
-          width: 400px;
-      }
-    }
+  .product-rating {
+    font-size: 2.2em;
+    margin-right: 10px;
+  }
 
-    .product-name {
-      font-size: 2.4em;
-    }
+  .product-reviews {
+    font-size: 1.5em;
+  }
 
-    .product-brand {
-      font-size: 1.6em;
-    }
+  .product-price {
+    font-size: 1.5em;
+  }
 
-    .product-rating {
-      font-size: 2.2em;
-      margin-right: 10px;
-    }
-
-    .product-reviews {
-      font-size: 1.5em;
-    }
-
-    .product-price {
-      font-size: 1.5em;
-   }
-
-   .text-title-description {
+  .text-title-description {
     font-size: 1.2em;
   }
 
@@ -293,5 +295,4 @@ ion-button {
   .cont-description {
     min-height: 50vh;
   }
-
-  }
+}

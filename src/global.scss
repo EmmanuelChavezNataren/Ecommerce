@@ -16,7 +16,7 @@
 @import "~@ionic/angular/css/normalize.css";
 @import "~@ionic/angular/css/structure.css";
 @import "~@ionic/angular/css/typography.css";
-@import '~@ionic/angular/css/display.css';
+@import "~@ionic/angular/css/display.css";
 
 /* Optional CSS utils that can be commented out */
 @import "~@ionic/angular/css/padding.css";
@@ -26,105 +26,101 @@
 @import "~@ionic/angular/css/flex-utils.css";
 @import "theme/custom/fonts.scss";
 
-
-ion-button{
-    font-family: "Raleway", sans-serif;
-    font-weight: 700;
-    text-transform: capitalize;
-    font-size: 1em;
-    height: 3em;
+ion-button {
+  font-family: "Raleway", sans-serif;
+  font-weight: 700;
+  text-transform: capitalize;
+  font-size: 1em;
+  height: 3em;
 }
 
 .bg-color {
-    --background: #f6f6f6;
+  --background: #f6f6f6;
 }
 
 ion-header {
-    z-index: 999;
-    --background: #F0F0F0;
-    &::after {
-        display: none !important;
+  z-index: 999;
+  --background: #f0f0f0;
+  &::after {
+    display: none !important;
+  }
+
+  ion-toolbar {
+    --background: #f0f0f0;
+    display: flex;
+    align-items: center;
+    min-height: 70px !important;
+    height: auto;
+    --border-width: 0 !important;
+
+    ion-buttons {
+      position: relative !important;
+      margin: 0;
+      --padding-end: 0 !important;
+      --padding-start: 0 !important;
+
+      ion-back-button {
+        --color: var(--ion-color-dark) !important;
+        --icon-font-size: 1.6rem !important;
+      }
+
+      ion-menu-button {
+        --color: var(--ion-color-dark) !important;
+        --padding-end: 0 !important;
+        font-size: 1.8rem !important;
+        margin-right: 12px;
+
+        &.ios {
+          font-size: 2rem !important;
+        }
+      }
+
+      ion-back-button {
+        .button-native {
+          padding: 0 !important;
+        }
+      }
+
+      &.ios {
+        padding: 0 10px !important;
+      }
     }
-  
-    ion-toolbar {
-        --background: #F0F0F0;
-        display: flex;
-        align-items: center;
-        min-height: 70px !important;
-        height: auto;
-        --border-width: 0 !important;
-  
-        ion-buttons {
-            position: relative !important;
-            margin: 0;
-            --padding-end: 0 !important;
-            --padding-start: 0 !important;
-  
-            ion-back-button {
-                --color: var(--ion-color-dark) !important;
-                --icon-font-size: 1.6rem !important;
-            }
-  
-            ion-menu-button {
-                --color: var(--ion-color-dark) !important;
-                --padding-end: 0 !important;
-                font-size: 1.8rem !important;
-                margin-right: 12px;
-  
-                &.ios {
-                    font-size: 2rem !important;
-                }
-  
-            }
-  
-            ion-back-button {
-                .button-native {
-                    padding: 0 !important;
-                }
-            }
-  
-            &.ios {
-                padding: 0 10px !important;
-            }
-  
-        }
-  
-        ion-title {
-            color: var(--ion-color-secondary);
-            padding: 0 15px !important;
-            padding-left: 20px;
-            text-align: left ;
-            font-family: "Poppins", sans-serif;
-            font-size: 1.5rem;
-            font-weight: 500;
-            letter-spacing: 0;
-            text-transform: none;
-            display: block;
-            position: relative !important;
-            left: 0;
-            overflow: visible !important;
-            line-height: 70px;
-        }
-  
-    }
-  
-    &.bg_transparent {
-        ion-toolbar {
-            --background: transparent;
-            --ion-color-base: transparent !important;
-        }
+
+    ion-title {
+      color: var(--ion-color-secondary);
+      padding: 0 15px !important;
+      padding-left: 20px;
+      text-align: left;
+      font-family: "Poppins", sans-serif;
+      font-size: 1.5rem;
+      font-weight: 500;
+      letter-spacing: 0;
+      text-transform: none;
+      display: block;
+      position: relative !important;
+      left: 0;
+      overflow: visible !important;
+      line-height: 70px;
     }
   }
 
-  .md .tabs-bottom {
-    transform: translateY(-82px) !important;
+  &.bg_transparent {
+    ion-toolbar {
+      --background: transparent;
+      --ion-color-base: transparent !important;
+    }
   }
-  .ios .tabs-bottom {
-    transform: translateY(-78px) !important;
-  }
-  .md .header-top {
-    top: 56px !important;
-  }
-  .ios .header-top {
-    top: 44px !important;
-  }
+}
+
+.md .tabs-bottom {
+  transform: translateY(-82px) !important;
+}
+.ios .tabs-bottom {
+  transform: translateY(-78px) !important;
+}
+.md .header-top {
+  top: 56px !important;
+}
+.ios .header-top {
+  top: 44px !important;
+}

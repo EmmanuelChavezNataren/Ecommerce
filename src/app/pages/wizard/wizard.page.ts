@@ -14,11 +14,11 @@ export class WizardPage implements OnInit {
   ngOnInit() {
   }
 
-  login(){
+  login() {
     this.storage.setData('isLogin', 1)
       .then(() => {
         this.router.navigateByUrl('/login');
-    });
+      });
   }
 
 }

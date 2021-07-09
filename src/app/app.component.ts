@@ -26,13 +26,13 @@ export class AppComponent {
     this.platform.ready().then(() => {
       this.storage.getDataObject('isLogin')
         .then((isLogin) => {
-          if(!!isLogin){
+          if (!!isLogin) {
             this.router.navigateByUrl('/login');
-              SplashScreen.hide({
-                fadeOutDuration: 500
-              });
+            SplashScreen.hide({
+              fadeOutDuration: 500
+            });
           }
-          else{
+          else {
             this.router.navigateByUrl('/wizard');
             SplashScreen.hide({
               fadeOutDuration: 500

@@ -1,7 +1,7 @@
-ion-toolbar ion-item{ 
-  --background: rgba(0,0,0,0);
-  
-  ion-label{
+ion-toolbar ion-item {
+  --background: rgba(0, 0, 0, 0);
+
+  ion-label {
     color: var(--ion-color-secondary);
     font-family: "Raleway", sans-serif;
     font-weight: 300;
@@ -11,14 +11,13 @@ ion-toolbar ion-item{
   }
 }
 
-ion-content h1{
+ion-content h1 {
   color: var(--ion-color-secondary);
   font-family: "Poppins", sans-serif;
   font-style: normal;
   font-weight: 500;
   padding-left: 25px;
 }
-
 
 ion-slide app-slider {
   height: 153px;
@@ -28,23 +27,22 @@ ion-slide app-slider {
   opacity: 0.7;
 }
 
-.swiper-slide-active{
+.swiper-slide-active {
   width: 51.3vw !important;
 }
 
-.swiper-slide-active app-slider{
+.swiper-slide-active app-slider {
   width: 100% !important;
   height: 153px !important;
   padding-top: 0px !important;
   opacity: 1;
 }
 
-.swiper-slide-active app-slider ion-card ion-card-content ion-row{
-  padding-top: .6em;
+.swiper-slide-active app-slider ion-card ion-card-content ion-row {
+  padding-top: 0.6em;
 }
 
-
-#discovery-block{
+#discovery-block {
   padding: 0px 16px 50px 16px;
 }
 .swiper-container {

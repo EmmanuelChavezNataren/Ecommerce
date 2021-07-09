@@ -32,4 +32,4 @@ const routes: Routes = [
   declarations: [ProfilePage],
   providers: [UserFacade]
 })
-export class ProfilePageModule {}
+export class ProfilePageModule { }
