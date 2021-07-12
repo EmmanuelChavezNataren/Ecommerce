@@ -38,12 +38,7 @@ export class ListPage implements OnInit, OnDestroy {
   }
 
   includeBrand(brand: string) {
-    if (this.selectedBrands.includes(brand)) {
-      return true;
-    }
-    else {
-      return false;
-    }
+    return this.selectedBrands.includes(brand);
   }
 
   filterProducts(brand: string) {

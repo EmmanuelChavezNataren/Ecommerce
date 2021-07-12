@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-shadow */
 import { Action, createReducer, on } from '@ngrx/store';
 import { User } from 'src/app/models/User';
 import { Error } from 'src/app/models/Error';
@@ -24,7 +25,6 @@ const userReducer = createReducer(initialState,
 
     on(fromUser.loadUSer, state => ({ ...state, loading: true })),
 
-    // eslint-disable-next-line @typescript-eslint/no-shadow
     on(fromUser.loadUSerSuccess, (state, { user }) => ({
         ...state,
         loading: false,

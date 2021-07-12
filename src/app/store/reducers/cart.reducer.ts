@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-shadow */
 import { Action, createReducer, on } from '@ngrx/store';
 import { Product } from 'src/app/models/Product';
 import * as fromCart from '../actions/cart.actions';
@@ -26,7 +27,6 @@ const cartReducer = createReducer(initialState,
 
     on(fromCart.loadCart, state => ({ ...state, loading: true })),
 
-    // eslint-disable-next-line @typescript-eslint/no-shadow
     on(fromCart.loadCartSuccess, (state, { cartProducts, shipping }) => ({
         ...state,
         loading: false,

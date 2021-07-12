@@ -1,4 +1,4 @@
 <ion-button fill="clear" *ngIf="totalProducts > 0">
-  <ion-icon slot="icon-only" name="cart-outline" color="dark"></ion-icon>
-  <sup class="sup-total-cart" [ngClass]="totalProducts > 9 ? 'long-number-products' : ''">{{totalProducts}}</sup>
-</ion-button>
+  <ion-icon slot="icon-only" src="./assets/icon/cart.svg" color="dark"></ion-icon>
+  <ion-badge color="success" mode="ios">{{totalProducts}}</ion-badge>
+ </ion-button>

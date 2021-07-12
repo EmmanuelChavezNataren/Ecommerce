@@ -1,18 +1,22 @@
-.sup-total-cart {
+ion-badge{
   position: absolute;
-  background: #14e80f;
-  color: #fff;
-  z-index: 2;
-  padding: 7px 1px 6px 1px;
-  border-radius: 50%;
-  width: 14px;
-  height: 15px;
-  text-align: center;
-  font-size: 11px;
-  right: -4px;
-  top: 5%;
+  top: 0;
+  right: -1px;
+  width: auto;
+  font-size: 2.67vw;
+  font-family: "Raleway";
+  font-weight: 700;
+  --padding-end: 5.2px;
+  --padding-start: 5.5px;
+  --padding-top: 3px;
+  --padding-bottom: 4px;
 }
 
-.long-number-products {
-  width: 16px;
+.md ion-badge{
+  top: -2px;
+  right: -2px;
+  --padding-end: 4px;
+  --padding-start: 5px;
+  --padding-top: 1px;
+  --padding-bottom: 4px;
 }

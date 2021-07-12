@@ -7,7 +7,7 @@ import { ProductComponent } from './product/product.component';
 import { SliderComponent } from './slider/slider.component';
 import { ItemCartComponent } from './item-cart/item-cart.component';
 
-const PAGES_COMPONENTS = [
+const pages_components = [
   MyCartComponent,
   ProductComponent,
   SliderComponent,
@@ -21,10 +21,10 @@ const PAGES_COMPONENTS = [
     IonicModule.forRoot(),
   ],
   declarations: [
-    PAGES_COMPONENTS
+    pages_components
   ],
   exports: [
-    PAGES_COMPONENTS
+    pages_components
   ],
   entryComponents: [],
 })
